@@ -1,0 +1,922 @@
+/* styles used only by info view */
+
+/* custom background for info screen*/
+html {
+    background-image: radial-gradient(circle, var(--pf_main_bc_darker) 20%, #aac9ff);
+    background-attachment: scroll;
+
+    /* some animations are leaving page bounds, prevent scroll bars*/
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* fade in animations */
+.viewFadeIn[anim] {opacity: 0}
+
+/* main logo header wrapper */
+.mainLogoWrapper {
+    width: 100%;
+    padding: 5% 0 5% 0;
+
+    color: var(--pf_primary);
+    text-align: center;
+    z-index: 100;
+}
+
+@media screen and (max-width: 750px) {
+    .mainLogoWrapper {
+        padding: 4em 0 4em 0;
+    }
+}
+
+/* filler for top div placement wrapping main logo and headline*/
+.mainLogoFiller {
+    margin: 0;
+    width: 100%;
+    min-height: 400px;
+}
+
+.fullWidthImage {
+    position: absolute;
+    margin: 0;
+
+    height: calc(120px + 23vw);
+    min-width: 100.5%; /* .5 prevents clipping error */
+    min-height: 400px;
+    object-fit: cover;
+    overflow: hidden;
+
+    box-shadow: 0 2px 4px var(--pf_shadow_gray);
+
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    background-color: darkblue;
+}
+
+/* main logo image */
+.mainLogoImage[part] {
+    height: 80px;
+    opacity: 0;
+    z-index: 25;
+}
+
+@media screen and (max-width: 750px) {
+    .mainLogoImage[part="left"] {
+        width: 27.75%;
+        height: auto;
+    }
+
+    .mainLogoImage[part="right"] {
+        width: 62.25%;
+        height: auto;
+    }
+}
+
+/* main logo image */
+.mainLogoImage[part="left"] {
+    animation: 0.6s ease-out 0.6s slideInRight forwards ;
+}
+
+/* main logo image */
+.mainLogoImage[part="right"] {
+    animation: 0.6s ease-out 0.4s slideInLeft forwards ;
+}
+
+/* wrapper for animated sub headers in title*/
+.subHeader {
+    width: 65%;
+    margin: 1em auto 0 auto;
+
+    font-family: 'Raleway', serif;
+    font-size: 1.75em;
+}
+
+/* red bar for sub header in title */
+.subHeaderUpper {
+    margin: 1em 4em 1em 0.5em;
+    padding: 0.25em 2em 0.25em 2em;
+
+    background-color: var(--pf_wrong_dark);
+    color: white;
+
+    opacity: 0;
+    animation: 0.4s ease-in-out 0.6s slideInRightSkewed forwards
+}
+
+/* gray bar for sub header in title */
+.subHeaderLower {
+    margin: 1em 0.5em 1em 4em;
+    padding: 0.25em 2em 0.25em 2em;
+
+    background-color: rgb(60, 60, 70);
+    color: white;
+    text-align: right;
+
+    opacity: 0;
+    animation: 0.4s ease-in-out 0.6s slideInLeftSkewed forwards
+}
+
+/* gray bar for headers further down on page */
+.textHeaderSkewed {
+    margin: 4em 10em 2em 8em;
+    padding: 0.5em 2em 0.25em 4em;
+
+    background-color: rgb(60, 60, 70);
+    color: white;
+    font-family: 'Raleway', serif;
+    font-size: 1.75em;
+
+    transform: skew(-8deg);
+}
+
+/* selection card field (outer) for beginning */
+.selectionField {
+    width: 100%;
+    margin: 1em auto 1em auto;
+    padding: 0 5em 0 5em;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.selectionFieldCompressed {
+    margin: 1em 5em 1em 5em;
+
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-between;
+}
+
+
+@media screen and (max-width: 1450px) {
+    .subHeader {
+        width: 80%;
+        font-size: 1.25em;
+    }
+
+    .textHeaderSkewed {
+        margin: 4em 8em 2em 5em;
+        font-size: 1.25em;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .subHeader {
+        width: 95%;
+        font-size: 1.1em;
+    }
+
+    .subHeaderUpper {
+        margin: 1em 1.5em 1em 0.5em;
+    }
+
+    .subHeaderLower {
+        margin: 1em 0.5em 1em 1.5em;
+    }
+
+    .textHeaderSkewed {
+        margin: 4em 4em 2em 3em;
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .textHeaderSkewed {
+        padding: 0.5em 2em 0.25em 2em;
+        margin: 4em 1em 2em 1em;
+    }
+}
+
+/* background with pattern */
+.sleaze, .introField{
+    overflow: hidden;   /* prevents collapsing margins */
+    background: var(--pf_wrong_dark);
+    background: url("/images/tile.png") repeat-x center;
+    background-repeat: repeat;
+
+    box-shadow: inset 0 -2px 6px var(--pf_shadow_gray), inset 0 2px 6px var(--pf_shadow_gray);
+}
+
+/* content with buttons and cards*/
+.introField {
+    width: 100%;
+    margin: 0 auto 1em auto;
+    padding: 6em 0 2em 0;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.introField:nth-child(n) {
+    order: 1;
+}
+
+@media screen and (max-width: 1200px) {
+    /* change flex order to put wrapper below login buttons */
+    .introField {
+        padding: 3em 1em 1em 1em;
+    }
+}
+
+.screenExampleWrapper {
+    margin: 3em 0 3em 0;
+    text-align: center;
+}
+
+/* animated player screens */
+.screenExample {
+    height: 34em;
+    width: auto;
+    filter: drop-shadow(1px 2px 8px var(--pf_shadow_gray));
+
+    transition: all 0.5s;
+}
+
+.screenExample[elem="center"] {
+    z-index: 2;
+    transform: translate(0, 0) rotate(0) scale(1);
+}
+
+.screenExample[elem="left"] {
+    z-index: 1;
+    transform: translate(6em, 0) rotate(-10deg) scale(0.9);
+}
+
+.screenExample[elem="right"] {
+    z-index: 1;
+    transform: translate(-6em, 0) rotate(10deg) scale(0.9);
+}
+
+.screenExample[elem="center"]:hover{
+    transform: translate(0, 0) rotate(0) scale(1.05);
+}
+
+.screenExample[elem="left"]:hover {
+    transform: translate(0, 1em) rotate(-3deg) scale(1);
+}
+
+.screenExample[elem="right"]:hover {
+    transform: translate(0, 1em) rotate(3deg) scale(1);
+}
+
+@media screen and (max-width: 1600px) {
+    /* change flex order to put wrapper below login buttons */
+    .screenExampleWrapper {
+        margin: 3em 0 3em 0;;
+    }
+
+    .screenExample {
+        height: 30em;
+    }
+}
+
+@media screen and (max-width: 1500px) {
+    /* change flex order to put wrapper below login buttons */
+    .screenExample {
+        height: 25em;
+    }
+
+    .screenExample[elem="left"]:hover {
+        transform: translate(0.5em, 1em) rotate(-3deg) scale(1);
+    }
+
+    .screenExample[elem="right"]:hover {
+        transform: translate(-0.5em, 1em) rotate(3deg) scale(1);
+    }
+}
+
+@media screen and (max-width: 1350px) {
+    /* change flex order to put wrapper below login buttons */
+    .screenExample {
+        height: 28em;
+    }
+
+    .screenExampleWrapper {
+        order: 2;
+        margin: 4em;
+    }
+
+    .screenExample[elem="left"] {
+        z-index: 1;
+        transform: translate(3em, 0) rotate(-10deg) scale(0.9);
+    }
+
+    .screenExample[elem="right"] {
+        z-index: 1;
+        transform: translate(-3em, 0) rotate(10deg) scale(0.9);
+    }
+
+    .screenExample[elem="left"]:hover {
+        transform: translate(0, 1em) rotate(-3deg) scale(1);
+    }
+
+    .screenExample[elem="right"]:hover {
+        transform: translate(0, 1em) rotate(3deg) scale(1);
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .screenExampleWrapper {
+        margin: 2em 0.5em 1em 0.5em;
+    }
+
+    .screenExample {
+        height: 18em;
+    }
+
+    .screenExample[elem] {
+        transform: translate(0, 0) rotate(0) scale(1);
+    }
+
+    .screenExample[elem]:hover{
+        transform: translate(0, 0) rotate(0) scale(1);
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .screenExampleWrapper {
+        margin: 2em 0.5em 1em 0.5em;
+    }
+
+    .screenExample {
+        height: 11em;
+    }
+
+    .screenExample[elem] {
+        transform: translate(0, 0) rotate(0) scale(1);
+    }
+
+    .screenExample[elem]:hover{
+        transform: translate(0, 0) rotate(0) scale(1);
+    }
+}
+
+/* horizontal scrolling container for smartphone card display */
+.smartphoneCardScroller {
+    padding: 1em 0 2em 0;
+
+    justify-content: space-evenly;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+
+    scroll-snap-type: x mandatory;
+
+    scroll-behavior: smooth;
+}
+
+.smartphoneCardScrollerMargin {
+    flex: 0 0 auto;
+    width: 0;
+}
+
+.smartphoneCardScrollerButton {
+    display: none;
+    position: absolute;
+    z-index: 5;
+}
+
+.smartphoneCardScrollerButton:first-of-type {
+    left: 0.25em;
+    transform: translateY(350px);
+}
+
+.smartphoneCardScrollerButton:last-of-type {
+    right: 0.25em;
+    transform: translateY(350px);
+}
+
+@media screen and (max-width: 1275px) {
+    .smartphoneCardScroller {
+        overflow-x: auto;
+        justify-content: start;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .smartphoneCardScroller::-webkit-scrollbar {
+        display: none;
+    }
+
+    .smartphoneCardScrollerMargin {
+        width: 4em
+    }
+
+    .smartphoneCardScrollerButton {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .smartphoneCardScrollerMargin {
+        width: calc(50vw - 110px);
+    }
+}
+
+/* hide scrollbar */
+.smartphoneCardScroller::-webkit-scrollbar { display: none; !important }
+.smartphoneCardScroller {
+    overflow-x: -moz-scrollbars-none;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+/* smartphone card */
+.smartphoneCard {
+    --smartphone_color: rgb(60, 60, 70);
+    --smartphone_button_color: rgb(100, 100, 120);
+
+    display: inline-block;
+    max-width: 300px;
+    margin: 0.5em;
+    padding: 0.75em 0.25em 1em 0.25em;
+
+    flex: 0 0 auto;
+    scroll-snap-align: center;
+    scroll-snap-type: x proximity;
+
+    border-radius: 24px;
+    background: var(--smartphone_color);
+    box-shadow: 1px 2px 4px var(--pf_shadow_gray);
+}
+
+/* camera dot */
+.smartphoneCard:before {
+    position: relative;
+    display: block;
+
+    top: -6px;
+    left: 250px;
+
+    width: 16px;
+    height: 16px;
+
+    border-radius: 8px;
+    background: var(--smartphone_button_color);
+
+    content: "";
+}
+
+/* homebutton dot */
+.smartphoneCard::after {
+    position: relative;
+    display: block;
+
+    top: 8px;
+    left: 130px;
+
+    width: 32px;
+    height: 32px;
+
+    border-radius: 16px;
+    background: var(--smartphone_button_color);
+
+    content: "";
+}
+
+/* inner wrapper for smartphone card */
+.smartphoneCardInner{
+    width: 100%;
+    min-height: 500px;
+
+    padding: 1.5em 1.5em 0.5em 1.5em;
+
+    border-radius: 4px;
+    background: floralwhite;
+}
+
+.smartphoneImage {
+    display: block;
+    margin: 0.5em auto 1em auto;
+
+    max-height: 125px;
+    max-width: 125px;
+    height: auto;
+    width: auto;
+
+    filter: drop-shadow(1px 2px 2px var(--pf_shadow_gray));
+}
+
+.smartphoneCardInner h3, .smartphoneCardInner h2, .smartphoneCardInner h1 {
+    text-align: center;
+}
+
+.smartphoneCardInner b {
+    font-weight: normal;
+}
+
+/* flexbox for badge wrapper */
+.badgeHiglight {
+    margin: 2em 6em 2em 6em;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 2em;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+@media screen and (max-width: 1500px) {
+    .badgeHiglight {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .badgeHiglight {
+        margin: 2em 4em 2em 4em;
+        grid-column-gap: 0;
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .badgeHiglight {
+        margin: 2em 0.5em 2em 0.5em;
+        grid-column-gap: 0;
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media screen and (max-width: 1000px) and (min-width: 900px), (max-width: 550px) {
+    .wrapperTrophy[animID] {
+        grid-template-columns: 6em calc(100% - 6em - 1.5em) 1.5em;
+        height: 6em;
+        border-radius: 3em 0 0 3em;
+        margin: 0.25em 0 0.25em 0;
+    }
+
+    .fillTrophyImage {
+        width: 4.5em;
+        height: 4.5em;
+
+        border-radius: 2.25em;
+    }
+
+    .wrapperTrophyDiscription {
+        font-size: small;
+        padding: 0;
+        margin: 0.5em 0 0.5em 0;
+    }
+
+    .wrapperTrophyDiscription h4 {
+        font-size: large;
+        margin: 0 0 0.15em 0;
+    }
+
+    .wrapperTrophyDiscription b {
+        font-size: initial;
+    }
+
+    .trophyStars {
+        margin: 0.15em 0 0.15em 0;
+    }
+
+    .imageTrophyStar {
+        margin: 0.1em 0 0.1em 0;
+        width: 1em;
+    }
+
+    .imageTrophy {
+        width: 3em;
+        height: 3em;
+        padding: 0.5em;
+    }
+}
+
+/* unodered collection of individual tasks /steps displayed */
+.stepDisplay {
+    margin: 1em 8em 1em 8em;
+    padding: 1em;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-gap: 0.5em;
+    grid-auto-flow: row;
+
+    justify-self: center;
+    justify-content: space-evenly;
+    justify-items: center;
+    align-content: space-evenly;
+    align-items: center;
+
+    /*grid-template-areas:
+            "c a a"
+            "b a a"
+            "b a a"
+            "b a a"
+            "b a a";*/
+}
+
+/* reverses auto flow direction */
+.stepDisplay.rightwing {
+    direction: ltr;
+}
+
+.stepDisplay.leftwing {
+    direction: rtl;
+}
+
+@media screen and (max-width: 1500px) {
+    .stepDisplay {
+        margin: 1em 2em 1em 2em;
+        padding: 0.5em;
+    }
+}
+
+@media screen and (max-width: 1350px) {
+    .stepDisplay {
+        margin: 1em 1.5em 1em 1.5em;
+        padding: 0.5em;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+    }
+}
+
+@media screen and (max-width: 850px) and (min-width: 700px), (max-width: 450px) {
+    .stepDisplay .henrikButton {
+        font-size: 0.85em;
+    }
+
+    .stepDisplay .henrikButton.larger {
+        --button_width: 300px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .stepDisplay {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(11, 1fr);
+        grid-gap: 0;
+    }
+}
+
+.stepTextItem {
+    margin: 0.1em 0.5em 0.1em 0.75em;
+
+    font-size: large;
+
+    /* changes text order back */
+    direction: ltr;
+
+    align-self: center;
+    justify-self: start;
+}
+
+.rightwing>.stepTextItem {
+    text-align: start;
+}
+
+.leftwing>.stepTextItem {
+    text-align: end;
+}
+
+@media screen and (max-width: 450px) {
+    .stepTextItem {
+        font-size: 0.85em;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .rightwing>.stepTextItem {
+        text-align: center;
+    }
+
+    .leftwing>.stepTextItem {
+        text-align: center;
+    }
+}
+
+.stepImage {
+    width: 90%;
+    height: 90%;
+
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 6;
+
+    filter: drop-shadow(1px 2px 2px var(--pf_shadow_gray));
+}
+
+.stepImage.rightwing {
+    background: url("/images/boss.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.stepImage.leftwing {
+    background: url("/images/characterPair.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.stepConnector {
+    border-left: 1px dotted black;
+    height: 100px;
+}
+
+/* images in cards of scene*/
+.sceneImages {
+    width: 100%;
+    height: auto;
+    padding: 0.5em 0 0 0;
+
+    background-color: skyblue;
+    border-radius: 0 0 10px 10px;
+}
+
+@media screen and (max-width: 1350px) {
+    .stepImage {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 1;
+    }
+
+    .stepImage.leftwing {
+        background-position: right;
+    }
+
+    .stepImage.rightwing {
+        background-position: left;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .stepImage {
+        background: none;
+        display: none;
+
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 1;
+    }
+}
+
+/* footer background element */
+.footerFat {
+    margin: 8em 0 0 0;
+    padding:0.5em 5em 2em 5em;
+    width: 100%;
+    height: calc(100% - 75px);
+
+    background: rgb(60, 60, 70) url("/images/tileGray.png") repeat center;
+    color: var(--pf_primary_light);
+
+    box-shadow: inset 0 2px 4px black;
+}
+
+/* used for logos sponsors... */
+.footerLower {
+    margin: 0;
+    padding: 0.5em 5em 1em 5em;
+
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+}
+
+/* used for logos */
+.footerLowerItem {
+    font-size: 0.7em;
+    height: 6em;
+    width: auto;
+    display: flex;
+    margin: 0.5em 0.5em 0 0.5em;
+}
+
+/* footer grid with logo image*/
+.footerGrid {
+    padding: 2em;
+    margin: 0 auto 0 auto;
+    width: 1000px;
+
+    display: grid;
+    justify-self: center;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0.5em;
+
+    border-radius: 16px;
+    border: solid 2px var(--pf_primary_light);
+}
+
+.footerPinImg {
+    position: relative;
+    left: calc(50% - 23px);
+    top: 1em;
+    
+    width: 45px;
+    height: auto;
+    z-index: 5;
+
+    filter: drop-shadow(1px 2px 2px var(--pf_shadow_gray));
+}
+
+.footerGrid div:first-child {
+    grid-column-start: 1;
+    grid-column-end: 3;
+
+    width: 100%;
+    margin: 0 0 1em 0;
+    padding: 0.5em;
+    text-align: center;
+    justify-self: center;
+
+    border-bottom: solid 1px var(--pf_primary_light);
+}
+
+.footerGrid div:last-child {
+    text-align: right;
+}
+
+.footerFat b {
+    font-size: 1.25em;
+}
+
+.footerFat h4 {
+    font-size: 1.4em;
+    font-style: italic;
+    margin: 0.5em 0 0.5em 0;
+}
+
+.footerFat h6 {
+    font-size: 1.1em;
+    color: var(--pf_yellow);
+}
+
+.footerFat a {
+    display: block;
+    font-size: 0.95em;
+    color: var(--pf_yellow);
+}
+
+@media screen and (max-width: 1200px) {
+    .footerGrid {
+        margin: 0;
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .footerGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .footerGrid div{
+        text-align: center;
+    }
+
+    .footerGrid div:last-child {
+        text-align: center;
+    }
+
+    .footerGrid div:first-child {
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .footerFat {
+        margin: 4em 0 0 0;
+        padding: 1em 0.5em 1em 0.5em;
+    }
+
+    .footerGrid {
+        padding: 0.5em;
+    }
+}
+
+
+/* fade in effects with delay */
+.viewFadeIn[anim="left"] { animation: 0.25s ease-in-out 0.2s slideInLeft forwards ; }
+.viewFadeIn[anim="right"] { animation: 0.25s ease-in-out 0.2s slideInRight forwards ; }
+.viewFadeIn[anim="up"] { animation: 0.25s ease-in-out 0.2s slideInUp forwards ; }
+.viewFadeIn[anim="down"] { animation: 0.25s ease-in-out 0.2s slideInDown forwards ; }
+
+.viewFadeIn[anim="leftSkewed"] { animation: 0.4s ease-in-out 0.2s slideInLeftSkewed forwards ; }
+.viewFadeIn[anim="rightSkewed"] { animation: 0.4s ease-in-out 0.2s slideInRightSkewed forwards ; }
+
+.viewFadeIn[anim="leftDelayed"] { animation: 0.25s ease-in-out 0.3s slideInLeft forwards ; }
+.viewFadeIn[anim="rightDelayed"] { animation: 0.25s ease-in-out 0.3s slideInRight forwards ; }
+.viewFadeIn[anim="upDelayed"] { animation: 0.25s ease-in-out 0.3s slideInUp forwards ; }
+.viewFadeIn[anim="downDelayed"] { animation: 0.25s ease-in-out 0.3s slideInDown forwards ; }
+
+/* .selectionCardMedium.viewFadeIn[anim*="Delayed"] { animation-duration: 2s; animation-delay: 3s; }  selector ok, animation not working...??? :(*/
+
+
+/* transition effect on hover */
+.hoverHighlight {
+    transition: all 0.25s ease;
+}
+
+.hoverHighlight:hover {
+    transform: scale(1.1);
+}

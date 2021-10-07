@@ -1,0 +1,577 @@
+/* styles used only by editor views */
+
+/* small alert box for additional infos */
+.smallAlert {
+    color: var(--pf_wrong);
+    font-weight: bold;
+}
+
+/* centers and resizes qr code */
+.centerQRcode {
+    display: block;
+    padding: 0.5em;
+    background-color: var(--pf_item_bc);
+
+    min-width: 30%;
+    max-height: 20%;
+    margin-left: 3em;
+    margin-right: 3em;
+}
+
+/* place note for scan qr*/
+.scanQRnote {
+    display: block;
+    height: 500px;
+}
+
+/* ofc image centered and sized */
+.headingOFClarge {
+    display: block;
+
+    height: 60px;
+    margin: 0.5em auto 2em auto;
+}
+
+/* element to display creators name in center */
+.credits {
+    font-size: small;
+    text-align: center;
+    color: gray;
+}
+
+/* creates 50:50 grid */
+.editorGridHalf {
+    display: grid;
+    grid-template-columns: calc(50% - 0.5em) calc(50% - 0.5em);
+    grid-gap: 1em;
+}
+
+/* creates shifted 80:20 grid */
+.editorGridRight {
+    display: grid;
+    grid-template-columns: calc(80% - 1em) 20%;
+    grid-gap: 1em;
+}
+
+/* creates shifted 20:80 grid */
+.editorGridLeft {
+    display: grid;
+    grid-template-columns: calc(20% - 1em) 80%;
+    grid-gap: 1em;
+}
+
+/* creates 3 column grid */
+.editorGridTriple {
+    display: grid;
+    grid-template-columns: 33% calc(33% - 2em) 33%;
+    grid-gap: 1em;
+}
+
+/* creates responsive custom 4 column grid */
+.editorGridQuarterResponsive {
+    display: grid;
+    grid-template-columns: calc(20% - 1em) 40% 15% calc(25% - 2em); /*grid gaps subtracted at fitting position*/
+    grid-template-rows: 100%;
+    grid-gap: 1em;
+}
+
+/* game mode selection cards */
+.gameSelectionCardWrapper {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: stretch;
+    align-content: center;
+
+    margin: 1em 0em 1em 0em;
+
+    background-color: var(--pf_main_bc_darker);
+    box-shadow: 1px 2px 4px var(--pf_shadow_gray);
+}
+
+/* inner game mode card */
+.gameSelectionCard {
+    display: flex;
+    flex-flow: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+
+    margin: 0;
+    padding: 1em;
+    text-align: center;
+
+    cursor: pointer;
+    border-right: 1px solid var(--pf_gray_dark);
+}
+
+.gameSelectionCard:hover {
+    background-color: var(--pf_font_light);
+}
+
+/* highlighted */
+.gameSelectionCard.active {
+    background-color: var(--pf_primary_light);
+    box-shadow: inset 1px 2px 4px var(--pf_shadow_gray);
+}
+
+.gameSelectionCard:last-of-type {
+    border-right: none;
+}
+
+/* responsive grid, resizes when screen is smaller then 1280*/
+@media screen and (max-width: 1280px) {
+    .editorGridQuarterResponsive {
+        grid-template-columns: calc(40% - 1em) 60%;
+        grid-template-rows: 50% 50%;
+    }
+}
+
+/* frames for unplayed game session items*/
+.editorHomeSessionFrameUnplayed {
+    display: grid;
+    grid-template-columns: calc(100% - 28.25em) 11em 4em 14em;
+
+    overflow-wrap: break-word;
+}
+
+/* frames for played game session items*/
+.editorHomeSessionFrame {
+    display: grid;
+    grid-template-columns: calc(100% - 30.5em) 11em 9.5em 10em;
+
+    overflow-wrap: break-word;
+}
+
+.editorImportSessionFrameUnplayed{
+    display: grid;
+    grid-template-columns: calc(100% - 18.5em) 11em 4em 3.5em;
+
+    overflow-wrap: break-word;
+}
+
+.editorImportSessionFrame {
+    display: grid;
+    grid-template-columns: calc(100% - 24em) 11em 9.5em 3.5em;
+
+    overflow-wrap: break-word;
+}
+
+/* content wrapper for text */
+.sessionItem {
+    margin: 0 0 0.5em 0;
+    padding: 0.5em;
+    width: 100%;
+    background-color: var(--pf_item_bc);
+}
+
+/* adds item constraints for responsive desing */
+.editorGridDescription {
+    min-width: 12em;
+}
+
+/* adds item constraints for responsive desing */
+.editorGridContent {
+    max-width: 31em;
+}
+
+/* flow layout grid for statistics */
+.statisticsGrid {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 0em -0.5em 1em -0.5em;
+}
+
+/* small responsive content card for statistics */
+.statisticsCardWrapperSmall {
+    margin: 0.5em;
+    padding: 0.5em;
+
+    height: auto;
+    width: calc(33.3% - 1em);
+    min-width: 410px;
+    background-color: var(--pf_item_bc);
+}
+
+/* large responsive content card for statistics */
+.statisticsCardWrapperLarge {
+    margin: 0.5em;
+    padding: 0.5em;
+
+    height: auto;
+    width: calc(66.6% - 1em);
+    min-width: 620px;
+    background-color: var(--pf_item_bc);
+}
+
+/* responsive resizing of statistics wrappers */
+@media screen and (max-width: 1630px) {
+    .statisticsCardWrapperLarge {
+        width: calc(100% - 1em);
+    }
+    .statisticsCardWrapperSmall {
+        width: calc(50% - 1em)
+    }
+}
+
+/* constraints size of preview image in question editor */
+.editorPreviewImage {
+    /*max-width: 11em;*/
+    max-height: 10em;
+    max-width: 100%;
+}
+
+/* Dont overlap on smaller screens */
+@media screen and (max-width: 1609px) {
+    .editorPreviewImage {
+        max-width: 11em;
+        max-height: 10em;
+    }
+}
+
+/* increased size option*/
+.editorPreviewImage.large {
+    margin: 0.5em 0 0.5em 0;
+    max-height: 15em;
+    max-width: 100%;
+}
+
+/* heading of fold-up list */
+.editorAccordionHeading {
+    text-align: left;
+    color: var(--pf_primary);
+}
+
+/* item of fold-up list */
+.modalItem {
+    margin: 1em 0em 0.5em 0em;
+}
+
+.editorQuestionSummaryCard {
+    display: grid;
+    grid-template-columns: calc(100% - 1em - 110px) 110px;
+    grid-template-rows: 100%;
+    grid-gap: 1em;
+}
+
+/* white box for top header */
+.editorHeaderBox {
+    padding: 0em 0em 0em 1.5em;
+    background-color: var(--pf_header);
+    color: var(--pf_header_font);
+
+    overflow: hidden;
+
+    position: relative;
+    left: 14em;
+    top: 0;
+    width: calc(100% - 14em);
+    height: 2.5em;
+}
+
+/* blue box for logo display in top left corner*/
+.editorLogoBox[sideBarHidden] {
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    width: 14em;
+    height: 2.5em;
+    z-index: 2;
+    background-color: var(--pf_logo_back);
+    overflow-y: hidden;
+    padding: 0.25em 0.5em 0em 2.5em;
+}
+
+/* blue box for logo display in top left corner*/
+.editorLogoBox[sideBarHidden~="hidden"] {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* left side navigation bar (responsive) */
+.editorSidenavigation {
+    position: fixed;
+    width: 14em;
+    height: calc(100% - 2.5em);
+    left: 0;
+    top: 2.5em;
+    padding: 3em 0em 1em 0.2em;
+
+    z-index: 1;
+    background-color: var(--pf_sidenav_bc);
+    overflow-x: hidden;
+
+    display: table;
+    text-align: center;
+
+    box-shadow: 2px 2px 4px var(--pf_shadow_gray);
+}
+
+/* default text item in side navigation bar (workflow) (responsive)*/
+.editorSidenavigationItem[state] {
+    width: 13.8em;
+    height: 4em;
+    padding: 1em 0.5em 1em 0.5em;
+    margin: 1em 0em 1em 0em;
+
+    word-wrap: break-spaces;
+    display: table;
+    text-align: left;
+
+    color: var(--pf_font_light);
+    background-color: var(--pf_sidenav_bc_item);
+
+    border-width: 5px;
+    border-style: none none none solid;
+    border-color: var(--pf_sidenav_border);
+
+    box-shadow: -1px 2px 2px var(--pf_shadow_gray);
+}
+
+@media screen and (max-height: 800px) {
+    .editorSidenavigation {
+        padding: 1em 0em 1em 0.2em;
+    }
+
+    .editorSidenavigationItem[state] {
+        padding: 1em 0.5em 1em 0.5em;
+        margin: 0.25em 0em 0.25em 0em;
+    }
+}
+
+/* first item <session name> in list is not clickable */
+.editorSidenavigationItem[state~="noBorder"] {
+    border: none;
+}
+
+/* current page link in side navigation bar */
+.editorSidenavigationItem[state~="active"] {
+    background-color: var(--pf_sidenav_bc_item_highlight);
+    border-color: var(--pf_primary);
+    border-width: 8px;
+
+    box-shadow: -4px 2px 8px var(--pf_shadow_gray);
+}
+
+/* page link in side navigation bar highlighted (e.g. quit button)*/
+.editorSidenavigationItem[state~="highlight"] {
+    border-color: var(--pf_wrong);
+    font-weight: bold;
+}
+
+/* used to center text items in boxes */
+.editorSidenavigationItemText {
+    width: 100%;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+
+/* adds space to prevent overlapping of left side navigation bar */
+.editorSidenavigationFiller {
+    margin-left: 13em;
+}
+
+/* responsive grid in game over screen */
+.projectorGrid {
+    display: flex;
+    justify-content: center;
+}
+
+/* wrapper for first place image, name and points in game over screen */
+.firstplace {
+    margin: 0.5em 4em 0.5em 4em;
+    width: 30%;
+    max-width: 15em;
+}
+
+/* wrapper for second and third place image, name and points in game over screen */
+.secondthirdplace{
+    padding-top: 6em;
+    margin: 0.5em;
+    width: 30%;
+    max-width: 15em;
+}
+
+.marqueeOuter {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    border: solid 1px darkred;
+}
+
+/* running banner to show all other players */
+.marquee {
+    padding: 0.5em;
+    white-space: nowrap;
+    border: solid 1px #CCCCCC;
+    animation: marquee 10s linear infinite;
+    overflow: scroll;
+    scroll-behavior: smooth;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+}
+
+.marquee::-webkit-scrollbar {
+    display: none; /* Chrome Safari */
+}
+
+/* adds character idle animation to character (setup with JS) */
+.imageCharacterIdle {
+    transform-origin: 50% 100%;
+
+    animation: characterIdle;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+    animation-delay: 0s;
+}
+
+/* adds three dots if text overflows */
+.overflowEllipsis {
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/* box for statistics display */
+.statisticQuestionOuter {
+    margin: 1.5em 0.5em 0 0.5em;
+    padding: 0;
+}
+
+/* inner box with grid for statistics display */
+.statisticQuestion {
+    margin: 0;
+    padding: 1em 0.5em 1em 0.5em;
+
+    display: grid;
+    grid-template-columns: calc(100% - 1em - 420px) 420px;
+    grid-gap: 1em;
+    word-wrap: break-word;
+}
+
+/* answer box hanging out from statisticQuestion (collapsed by outer div) */
+.statisticAnswer {
+    padding: 1em;
+    margin: 0 1.5em 1em 1.5em;
+    display: grid;
+    grid-template-columns: calc(50% - 1em) calc(50% - 0.5em);
+    grid-gap: 1em;
+    word-wrap: break-word;
+
+    border-radius: 0 0 3px 3px;
+    border-width: 1px;
+    border-style: none solid solid solid;
+    border-color: var(--pf_border_gray);
+}
+
+/* displays bar chart for percent correct */
+.statisticQuestionBar[percentage] {
+    margin: 0;
+    padding: 0;
+    height: 6px;
+}
+
+/* adds character idle animation to for finish screen */
+.imageEndScreenIdle {
+    height: 10em;
+    width: auto;
+
+    padding: 0.5em 0.5em 1em 0.5em;
+
+    transform-origin: 50% 100%;
+    animation: characterIdle;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+    animation-delay: 0s;
+}
+
+/* second and first place have smaller images*/
+.imageEndScreenIdle[first="false"] {
+    height: 11em;
+    width: auto;
+    padding: 3em 1em 1em 1em;
+}
+
+/* animated crown for first player */
+.imageCrown {
+    height: 6em;
+    width: auto;
+
+    padding: 1em;
+
+    animation: crownBobbing;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    animation-duration: 3s;
+    animation-delay: 0s;
+}
+
+/* Gameover screen for noGame */
+.noGamelogo{
+    width: 40em;
+    margin: 2em auto 1em auto;
+}
+
+/* Gameover */
+.wrapperOuterMarginGameOver{
+    position:absolute;
+    top: 1em;
+    left: 2%;
+    right: 2%;
+}
+
+/* collapsible for session display */
+.collapsible {
+    cursor: pointer;
+    text-align: left;
+}
+
+.collapsible.active, .collapsible:hover {
+    background-color: var(--pf_primary_light);
+}
+
+/* inner background for collapsible content */
+.innerCollapsible {
+    max-height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out, margin 0.3s ease-out; /* timout for overflow delay must be changed in js too... */
+}
+
+/* unfolded */
+.innerCollapsible.active {
+}
+
+/* sessionItem inside collapsibles are indented */
+.innerCollapsible .sessionItem{
+    padding: 0.5em 0.5em 0.5em 1em;
+    margin: 0 0 0.5em 1.5em;
+    width: calc(100% - 1.5em);
+}
+
+/* coloring */
+.statisticQuestionBar[percentage^="0"] { background-color: #af0e4b; }
+.statisticQuestionBar[percentage^="1"] { background-color: #cf041b; }
+.statisticQuestionBar[percentage^="2"] { background-color: #db4214; }
+.statisticQuestionBar[percentage^="3"] { background-color: #e7800d; }
+.statisticQuestionBar[percentage^="4"] { background-color: #f3be06; }
+.statisticQuestionBar[percentage^="5"] { background-color: #fffd00; }
+.statisticQuestionBar[percentage^="6"] { background-color: #d2ea02; }
+.statisticQuestionBar[percentage^="7"] { background-color: #a5d705; }
+.statisticQuestionBar[percentage^="8"] { background-color: #77c508; }
+.statisticQuestionBar[percentage^="9"] { background-color: #4ab20b; }
+.statisticQuestionBar[percentage^="10"] { background-color: #1ea00e; }

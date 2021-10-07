@@ -1,0 +1,53 @@
+/* defines all colour variables used for uniform styling, single sheet used to change all colors */
+
+:root {
+    --pf_primary: rgba(14, 102, 140, 1);
+    --pf_wrong: rgba(175, 15, 74, 1);
+    --pf_correct: rgba(30, 160, 14, 1);
+    --pf_yellow: rgba(252, 165, 46, 1);
+
+    --pf_primary_dark: rgba(31, 63, 103, 1);
+    --pf_wrong_dark: rgba(175, 0, 60, 1);
+    --pf_correct_dark: rgba(3, 114, 40, 1);
+    --pf_yellow_dark: rgba(227, 105, 32, 1);
+
+    /* 0.8 white and 0.2 color */
+    --pf_primary_light: rgba(207, 224, 232, 1);
+    --pf_wrong_light: rgba(239, 207, 219, 1);
+    --pf_correct_light: rgba(210, 236, 207, 1);
+    --pf_yellow_light: rgba(254, 237, 150, 1);
+
+    --pf_gray_medium: rgba(107, 103, 103, 1);
+    --pf_gray_dark: rgba(75, 75, 75, 1);
+
+    --pf_shadow_gray: rgba(0, 0, 0, 0.5);
+    --pf_border_gray: rgba(75, 75, 75, 1);
+
+    --pf_font_gray: rgba(33, 37, 41, 1);
+    --pf_font_light: rgba(230, 230, 240, 1);
+    --pf_separationLine_gray: rgba(50, 50, 50, 1);
+
+    --pf_main_bc: rgba(255, 255, 255, 1);
+    --pf_main_bc_darker: rgba(225, 225, 225, 1);
+    --pf_header: rgba(255, 255, 255, 1);
+    /*--pf_header_transparent: rgba(255, 255, 255, 0.85);*/
+    --pf_header_transparent: rgba(255, 255, 255, 1);
+    --pf_header_font: rgba(255, 255, 255, 1);
+
+    --pf_item_bc: rgba(255, 255, 255, 1);
+    /*--pf_footer: rgba(248, 249, 250, 0.85);*/
+    --pf_footer: rgba(248, 249, 250, 1);
+    --pf_sidenav_bc: rgba(40, 40, 45, 1);
+    --pf_sidenav_bc_item: rgba(60, 60, 65, 1);
+    --pf_sidenav_bc_item_highlight: rgba(90, 90, 95, 1);
+    --pf_sidenav_border: rgba(100, 100, 110, 1);
+
+    --pf_logo_back: rgba(14, 102, 140, 1);
+
+    --pf_badge_white: rgb(255, 255, 255);
+    --pf_badge_bronze: rgb(244, 177, 131);
+    --pf_badge_silver: rgb(201, 201, 201);
+    --pf_badge_gold: rgb(255, 217, 102);
+    --pf_badge_emerald: rgb(146, 208, 80);
+    --pf_badge_sapphire: rgb(185, 242, 255);
+}

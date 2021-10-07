@@ -1,0 +1,279 @@
+/* used by most views for uniform look; defines often used css items for basic structuring*/
+
+/* centers heading*/
+.centerHeadingWrapper {
+    padding: 1em 10% 1em 10%;
+    text-align: center;
+}
+
+/* centers image */
+.centerImage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* centers image */
+.centerImageHorizontal {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+/* creates 50:50 grid for both characters*/
+.boxhalfBordered {
+    position: relative;
+    width: calc(50% - 1em);
+    margin: 0.5em 0.5em 0.5em 0.5em;
+    padding: 0.5em 0 0 0;
+
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+
+    background-color: var(--pf_item_bc);
+}
+
+/* marks item as selected */
+.boxhalfBordered.active {
+    background-color: var(--pf_primary_light);
+    box-shadow: 1px 2px 4px var(--pf_shadow_gray) inset;
+}
+
+/* creates constant margin */
+.wrapperOuter {
+    margin: 0em 1em 0em 1em;
+}
+
+/* big margin */
+.wrapperOuterMargin {
+    margin: 1em 5% 1em 5%;
+}
+
+/* wrappes all inner content, const margin */
+.wrapperInner {
+    margin: 0em 0.5em 0em 0.5em;
+}
+
+/* only right margin, used for grids*/
+.marginRightSmall {
+    margin: 0em 0.5em 0em 0em;
+}
+
+/* text alignment */
+.textCentered { text-align: center; }
+.textLeft { text-align: left; }
+.textRight { text-align: right; }
+
+/* used for headings */
+.centerBigWrapper {
+    font-size: 150%;
+    text-align: center;
+
+    background-color: var(--pf_item_bc);
+}
+
+/* used for profight logo */
+.headerColoring {
+    background-color: var(--pf_header);
+}
+
+.headerColoringTransparent {
+    background-color: var(--pf_header_transparent);
+}
+
+/* additionally for mobile header */
+.navbarMobile, .navbarMobileEnlarged {
+    z-index: 50;
+    height: calc(22px + 12px);
+    width: 100%;
+    padding: 4px 16px 8px 16px;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    text-align: center;
+}
+
+/* additionally for question mobile header */
+.navbarMobileEnlarged {
+    height: calc(80px + 12px);
+
+    padding: 4px 4px 8px 4px;
+}
+
+/* creates space at top so fixed headers do no overlay items */
+.fillerTop {
+    width: 100%;
+    height: calc(22px + 12px);      /* same size as navbarMobile*/
+}
+
+/* creates space at top so fixed headers do no overlay items */
+.fillerTopEnlarged {
+    width: 100%;
+    height: calc(80px + 12px);      /* same size as navbarMobile*/
+}
+
+/* creates space at bottom so fixed footers do no overlay items */
+.fillerBottom {
+    width: 100%;
+    height: 3em;
+}
+
+/* floats item to bottom */
+.floatBottom {
+    position: absolute;
+    bottom: 0;
+}
+
+/* floats item to right */
+.floatRight {
+    position: absolute;
+    right: 0;
+}
+
+/* makes text unselectable */
+.unselectable {
+    user-select: none;
+}
+
+/* flex justify center */
+.flexCenter{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* flex justify center */
+.flexMaximize{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+/* unordered list item positive */
+ul.positive {
+    list-style-type: none;
+    padding-left: 1em;
+    text-indent: -1em;
+}
+
+li.positive:before {
+    content: "+ ";
+}
+
+/* unordered list item negative */
+ul.negative {
+    list-style-type: none;
+    padding-left: 1em;
+    text-indent: -1em;
+}
+
+li.negative:before {
+    content: "- ";
+}
+
+/* unordered list item triangle */
+ul.triangle {
+    list-style-type: none;
+    padding-left: 1em;
+    text-indent: -1em;
+}
+
+li.triangle:before {
+    content: "▷ ";
+}
+
+/* animated arrows (down) */
+.animatedArrows{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.animatedArrows span{
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-bottom: 3px solid var(--pf_gray_dark);
+    border-right: 3px solid var(--pf_gray_dark);
+    transform: rotate(45deg);
+    margin: -10px;
+    animation: ArrowScrollDown 3s ease-in-out 1.4s infinite backwards;
+}
+.animatedArrows span:nth-child(2){
+    animation-delay: 1.2s;
+}
+.animatedArrows span:nth-child(3){
+    animation-delay: 1s;
+}
+
+/* positions inner heart image*/
+.imageHeart {
+    display: inline-flex;
+    vertical-align: middle;
+
+    width: auto;
+    height: 24px;
+}
+
+/* collapsible header */
+.accordionHeader[aria-expanded] {
+    margin: 0.5em 0em 0.5em 0em;
+    padding: 1em 0.5em 1em 0.5em;
+
+    cursor: pointer;
+
+    background-color: white;
+    transition: background-color 0.3s ease-out;
+
+    box-shadow: 1px 2px 4px var(--pf_shadow_gray);
+}
+
+/* collapsible header layout if expanded */
+.accordionHeader[aria-expanded="true"] {
+    background-color: var(--pf_primary_light);
+    box-shadow: 1px 2px 4px var(--pf_shadow_gray) inset;
+}
+
+/* enables a rotation icon */
+.accordionHeaderIcon[aria-expanded] {
+    font-size: 1.5rem;
+    transition: all 0.3s ease-out;
+}
+
+/* rotation a rotation icon */
+.accordionHeaderIcon[aria-expanded="true"] {
+    transform: rotate(90deg);
+}
+
+.accordionCollapse.innerCollapse {
+    margin: 0em 0.5em 0em 0.5em;
+    padding: 1em 0.5em 1em 1em;
+    background-color: var(--pf_main_bc);
+}
+
+/* bundled text with icon left of it */
+.iconizedItem {
+    margin: 0.5em 0 0.5em 0;
+
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: top;
+}
+
+/* center text with left icon */
+.iconizedItem.center {
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+/* balances left icon insde flexbox so all content stays centered except if you want to add another icon at the end, then use noBalance */
+.iconizedItem.center:not(.noBalancer)::after {
+    content: ".";
+    visibility: hidden;
+    width: 1.5em;
+}

@@ -1,0 +1,369 @@
+/* styles used only by mobile question view */
+
+/* centered big blue box for question */
+.questionBox {
+    margin: 0.5em 0em 0.5em 0em;
+    padding: 1.25em 0.5em 0em 0.5em;
+    text-align: center;
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    user-select: none;
+
+    overflow-x: auto;
+    word-wrap: break-word;
+
+    height: 25%;
+    min-height: 7em;
+
+    background-color: var(--pf_primary);
+
+    font-size: 1.05em;
+    color: white;
+}
+
+.numberCorrectAnswers{
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    background-color: var(--pf_sidenav_bc_item);
+    margin: 0.3em;
+}
+
+/* adds animation to fade background of question box to red (triggered by JS) */
+.questionBoxAnimateWrong {
+    background-color: var(--pf_wrong);
+
+    animation: fadeWrong;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+    animation-duration: 0.25s;
+}
+
+/* adds animation to fade background of question box to green (triggered by JS) */
+.questionBoxAnimateCorrect {
+    background-color: var(--pf_correct);
+
+    animation: fadeCorrect;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+    animation-duration: 0.25s;
+    font-weight: bold;
+}
+
+/* bottom bar for boss & character HP */
+.questionFooter {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+
+    background-color: var(--pf_footer);
+}
+
+/* adds footer at bottom to create space, so footer does not overlay elements */
+.questionFooterFiller {
+    width: 100%;
+    height: 50px;
+}
+
+/* character and boss image for footer */
+.footerImages {
+    margin: 0.25em 1em 0.25em 1em;
+    height: 30px;
+    width: auto;
+}
+
+/* customizes answer box, answer box works internally as checkbox */
+.answerLabel[animID] {
+    margin: 0.45em 0em 0.45em 0em;
+    padding: 0em 0.5em 0em 0.5em;
+
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    height: 100%;
+    min-height: 5.5em;
+    width: 100%;
+
+    background-color: var(--pf_item_bc);
+
+    cursor: pointer;
+    user-select: none;
+
+    transform: rotateX(90deg);
+
+    animation: rotateIn;
+    animation-timing-function: ease-out;
+    animation-fill-mode:forwards;
+    animation-duration: 0.25s;
+    animation-delay: 0s;
+}
+
+/* card flipping animation with unique delay for every card */
+.answerLabel[animID="0"] { animation-delay: 0s; }
+.answerLabel[animID="1"] { animation-delay: 0.1s; }
+.answerLabel[animID="2"] { animation-delay: 0.2s; }
+.answerLabel[animID="3"] { animation-delay: 0.3s; }
+
+/* changes background to blue with inner shadow if selected */
+#answerCheckbox input[type=checkbox]:checked + .answerLabel{
+    background-color: var(--pf_primary_light);
+    box-shadow: 1px 2px 4px var(--pf_shadow_gray) inset;
+}
+
+/* changes background color to default if unselected */
+#answerCheckbox input[type=checkbox]{
+    display: none;
+    background-color: var(--pf_item_bc);
+}
+
+/* answer box inner full size element for text */
+.answerLabelAnimateFiller {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+
+    font-size: 0.8em;
+
+    overflow-x: auto;
+    word-wrap:break-word;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 0em 0.5em 0em 0.5em;   /* padding set & unset in question.js when removing the anim*/
+}
+
+/* adds red blinking borders if answer was wrong (triggered by JS)*/
+.answerLabelAnimateWrong {
+    border-left: 0.5em solid transparent;
+    border-right: 0.5em solid transparent;
+
+    padding: 0px -0.5em 0px -0.5em;
+    /*text-decoration: underline;   too much only used if green and red look similar*/
+
+    animation: pulsateWrong;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-duration: 1.5s;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+}
+
+/* adds green blinking borders if answer was correct (triggered by JS)*/
+.answerLabelAnimateCorrect {
+    border-left: 0.5em solid transparent;
+    border-right: 0.5em solid transparent;
+
+    padding: 0px -0.5em 0px -0.5em;
+
+    animation: pulsateCorrect;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-duration: 1.5s;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    font-weight: bold;
+}
+
+/* adds animation for notification in bottom right */
+.smallNotificationCorner {
+    animation: notificationAnimation;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode:forwards;
+    animation-duration: 3s;
+    animation-delay: 0s;
+}
+
+/* notification in bottom right */
+.smallNotificationCornerPlaceholder {
+    position: absolute;
+    right: 0px;
+    bottom: 30px;
+    margin: 0em 1em 0em auto;
+
+    text-align: center;
+    overflow: hidden;
+
+    color: green;
+    font-size: 1.1em;
+    font-weight: bold;
+
+    transform: translateX(400px);
+}
+
+/* adds shaking and rotating animation, used for "next question" button (triggered by JS) */
+.pulseShadow {
+    animation: pulseShadow;
+    animation-fill-mode: backwards;
+    animation-timing-function: cubic-bezier(0.66, 0, 0, 1);
+    animation-duration: 1.2s;
+    -moz-animation-iteration-count: 3;
+    animation-delay: 20s;
+}
+
+/* adds heart box container*/
+.questionHeartBox {
+    margin: 20px 0px 0px 20px;
+}
+
+/* animates heart box container */
+.questionHeartBoxAnimate {
+    animation: heartLose;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+    animation-delay: 0s;
+}
+
+/* positions heart row to bottom left of fixed header */
+.heartContainerWrapper {
+    position: absolute;
+    bottom: 2px;
+    left: 6px;
+
+    width: 100%;
+    text-align: left;
+}
+
+/* positions heart container*/
+.fillQuestionHeartImage {
+    display: inline-flex;
+    vertical-align: middle;
+    justify-content: left;
+    align-items: center;
+    overflow: hidden;
+    margin: 2px -1px 2px -1px;
+
+    width: auto;
+    height: 24px;
+    z-index: 4;
+}
+
+/* for heart that fades out*/
+.fillQuestionHeartImage .animatedHeart {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    z-index: 5;
+}
+
+/* positions inner heart image*/
+.imageHeart {
+    display: inline-flex;
+    vertical-align: middle;
+
+    width: auto;
+    height: 24px;
+}
+
+/* positions spear info panel */
+.imageSpearContainer {
+    float: right;
+    margin-right: 20px;
+}
+
+/* positions spear image*/
+.imageSpear {
+    width: auto;
+    height: 24px;
+    margin-left: 5px;
+}
+
+/* image display for image questions */
+.questionImage {
+    width: auto;
+    height: auto;
+    max-height: 20em;
+    margin: 0 auto 0 auto;
+    max-width: 100%;
+    display: block;
+}
+
+/* "next question" button in bottom right */
+.nextQuestion {
+    --pf_btnSize: 50px;
+
+    position: fixed;
+
+    right: 1em;
+    bottom: 0.5em;
+
+    width: var(--pf_btnSize);
+    height: var(--pf_btnSize);
+    text-align: center;
+    line-height: calc(var(--pf_btnSize) / 2);
+    float: right;
+
+    border-radius: calc(var(--pf_btnSize) / 2);
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--pf_border_gray);
+}
+
+.nextQuestion:disabled {
+    opacity: 1;
+    background-color: var(--pf_gray_medium);
+    border-color: var(--pf_border_gray);
+}
+
+/* next button uses an image stored on server instead on iconifydesign.com to reduce server requests */
+.nextQuestionIcon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 28px;
+    height: auto;
+}
+
+/* circle timer outer wrapper */
+.circleTimerOuter {
+    position: fixed;
+
+    width: 64px;
+    height: 64px;
+    right: calc(50% - 35px);
+    top: 28px;
+}
+
+/* circle timer inner number */
+.circleTimerNumber {
+    position: relative;
+
+    width: 64px;
+    height: 64px;
+
+    text-align: center;
+    line-height: 64px;
+
+    font-size: larger;
+
+    transform: translateY(-64px);
+}
+
+/* circle timer moving part */
+.progress-ring__circle {
+    transition: 0.35s stroke-dashoffset;
+    /*axis compensation*/
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+}

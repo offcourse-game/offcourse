@@ -1,0 +1,711 @@
+/* styles used only by projector boss view */
+
+/* wraps scenery box with animated boss fight */
+.gameSceneWrapper {
+    min-height: 100%;
+    min-width: 100%;
+    overflow: hidden;
+
+    background-color: #4c2d00;
+}
+
+/* wraps game infos in animated boss fight */
+.gameSceneInfo {
+    position: fixed;
+    top: 0px;
+    padding: 0.5em;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    color: var(--pf_font_light);
+    font-size: 1.5em;
+}
+
+/* background of HUD positioned */
+.bossInfoBack {
+    position: absolute;
+}
+
+/* colors full background of game scene (responsive) */
+.blueSkyBackground {
+    position: relative;
+    left: 0;
+    bottom: 0;
+
+    /*min-height: 650px;*/
+    height: calc(100vh - 100px);
+    width: 100%;
+
+    background: radial-gradient(circle, rgba(0,180,223,1) 73%, rgba(13,146,232,1) 100%);;
+}
+
+/*
+@media screen and (min-height: 800px) {
+    .blueSkyBackground {
+        height: 700px;
+    }
+}
+
+@media screen and (min-height: 875px) {
+    .blueSkyBackground {
+        height: 800px;
+    }
+}
+
+@media screen and (min-height: 925px) {
+    .blueSkyBackground {
+        height: 850px;
+    }
+}
+
+@media screen and (min-height: 1000px) {
+    .blueSkyBackground {
+        height: 925px;
+    }
+}*/
+
+/* darkens background if players lose*/
+.backgroundThunder {
+    animation: skyColorGray;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-duration: 5s;
+}
+
+.foregroundFader {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 50;
+
+    animation: foregroundFaderGray;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-duration: 5s;
+}
+
+/* creates grass at bottom of game scene box */
+.imageGrassBackground {
+    position: relative;
+    left: 0;
+    bottom: 0;
+
+    min-height: 84px;
+    width: 100%;
+
+    background-repeat: repeat-x;
+}
+
+/* positions and scales scene background image (mountains) */
+.imageMountainsBackground {
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+/* positions tree */
+.imageTree {
+    position: absolute;
+    right: 2%;
+    bottom: 0;
+
+    height: 400px;
+    width: auto;
+}
+
+.imageFlower {
+    position: absolute;
+    right: 60%;
+    bottom: 0;
+
+    height: 50px;
+    width: auto;
+}
+
+/* positions boss image */
+.imageBoss {
+    position: absolute;
+    left: 5%;
+    bottom: 0;
+
+    height: 556px;
+    width: 489px;
+
+    transform-origin: bottom;
+
+    z-index: 2;
+}
+
+/* makes transitions easily removable to not mess up death animation*/
+.imageBossTransitioner {
+    transition-property: width, height;
+    transition-duration: 0.5s;
+}
+
+/* plays white flash when boss takes damage*/
+.bossFlashWhite {
+    animation: bossFlash;
+    animation-timing-function: ease-in-out;
+    animation-duration: 0.25s;
+}
+
+/* adds boss fall animation to boss at startup (setup with JS) */
+.imageBossFall {
+    animation: bossFall;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-duration: 1s;
+    animation-delay: 4s;
+
+    opacity: 0;
+    transform: translateY(-170px);
+}
+
+/* adds boss idle animation to boss (setup with JS) */
+.imageBossIdle {
+    animation: bossIdle;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-duration: 5s;
+    animation-delay: 0s;
+}
+
+/* positions character image */
+.imageCharacter {
+    transform-origin: 50% 100%;
+
+    position: absolute;
+    right: 10%;
+    bottom: 0;
+
+    max-height:110px;
+    width: auto;
+    height: auto;
+    z-index: 2;
+}
+
+/* adds character fall animation to character at beginning of fight (setup with JS) */
+.imageCharacterFall {
+    animation: characterFall;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-duration: 0.5s;
+
+    opacity: 0;
+}
+
+/* adds character idle animation to character (setup with JS) */
+.imageCharacterIdle {
+    animation: characterIdle;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+    animation-delay: 0s;
+}
+
+/* adds character fadeout animation if player dies */
+.imageCharacterDie {
+    animation: characterDie;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+    animation-delay: 0s;
+}
+
+/* creates rising ghost image if player dies (triggered with JS)*/
+.imageGhost {
+    position: absolute;
+    height:50px;
+    width: auto;
+    right: 10%;
+    bottom: 25%;
+
+    opacity: 0;
+
+    animation: ghostSpawn;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    animation-duration: 3s;
+    animation-delay: 1s;
+}
+
+/* positions cloud image */
+.imageCloud {
+    max-height:94px;
+    width: auto;
+    height: auto;
+}
+
+/* animates cloud movement (left to right) */
+.animCloud {
+    position: absolute;
+    right: 2%;
+    top: 10%;
+
+    animation: cloudMove;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-duration: 120s;
+    animation-delay: -30s;
+}
+
+/* positions lightning in cloud and adds animation (unhidden by JS)*/
+.imageLightning {
+    position: absolute;
+    right: 50%;
+    top: 80%;
+
+    width: auto;
+    height: 5em;
+
+    animation: lightningTrigger;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-duration: 3s;
+    animation-delay: 0s;
+}
+
+/* positions and scales spear image */
+.imageSpear {
+    position: absolute;
+    right: 10%;
+    bottom: 0;
+
+    max-height:80px;
+    width: auto;
+    height: auto;
+
+    opacity: 0;
+
+    animation: spearThrow;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-duration: 3s;
+}
+
+/* anchor at top-left in game scene for positioning items */
+.topAnchor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* sets common attributes for all 3 bone images */
+.imageBones[posID] {
+    position: absolute;
+}
+
+/* head bone positioning */
+.imageBones[posID="0"] {
+    left: 30%;
+    top: 16%;
+
+    width: 65%;
+    height: auto;
+}
+
+/* rip bones positioning */
+.imageBones[posID="1"] {
+    left: 30%;
+    top: 55%;
+
+    width: 25%;
+    height: auto;
+}
+
+/* leg bone positioning */
+.imageBones[posID="2"] {
+    left: 40%;
+    bottom: 4.5%;
+
+    width: 30%;
+    height: auto;
+}
+
+/* boss smoke particle with initial positioning (setup with JS)*/
+.bossSmoke {
+    position: absolute;
+    right: 4%;
+    top: 35%;
+
+    animation: bossSmoke;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+}
+
+/* initioal fire particle positioning (setup with JS)*/
+.bossFire {
+    position: absolute;
+    right: 15%;
+    top: 45%;
+
+    width: 30px;
+    height: 40px;
+
+    opacity: 0;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+}
+
+/* game scene notification positioning */
+.bossNotification {
+    text-align: center;
+    color: var(--pf_font_gray);
+    text-shadow: 0 0 1px var(--pf_font_gray);
+    font-weight: bold;
+    font-size: 2rem;
+
+    animation: bossNotificationDisappear;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+    animation-duration: 8s;
+}
+
+/* for animated letters inside boss notification */
+.bossNotification span {
+    display: inline-block;
+
+    animation: 0.75s 0s 1 forwards bossNotificationChar;
+    animation-timing-function: cubic-bezier(0.000, 0.800, 1.000, 0.200); /* custom animation accelerated timing function */
+}
+
+/* flexbox wrapping all boss notifications */
+.bossNotificationListWrapper {
+    position: absolute;
+    top: 150px;
+    left: 0;
+    right: 0;
+    margin: 0 auto 0 auto;
+
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+/* sliding doors for startup */
+.slider[side] {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+
+    background-color: white;
+    z-index: 75;
+    overflow: hidden;
+
+    animation-name: doorSlider;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+    animation-duration: 1.5s;
+    animation-delay: 1.5s;
+}
+
+/* sliding doors for startup (left)*/
+.slider[side="left"] {
+    left: 0;
+}
+
+/* sliding doors for startup (right)*/
+.slider[side="right"] {
+    right: 0;
+}
+
+/* sliding door logo image for startup */
+.sliderLogo[side] {
+    position: absolute;
+    height: 15%;
+    top: 25%;
+
+    overflow: hidden;
+}
+
+/* sliding door logo image for startup (left) */
+.sliderLogo[side="left"] {
+    right: 0;
+}
+
+/* sliding door logo image for startup (right)*/
+.sliderLogo[side="right"] {
+    left: 0;
+}
+
+/* big offcourse logo */
+.mainLogo {
+    position: absolute;
+    width: 32rem;
+
+    top: 4rem;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+/* image for team fight */
+.teamStoryImage {
+    position: absolute;
+    width: 24rem;
+
+    top: 33rem;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+/* noStory main wrapper */
+.noStoryHUDwrapper {
+    position: absolute;
+
+    top: 18rem;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    filter: drop-shadow(1px 2px 2px var(--pf_shadow_gray));
+}
+
+/* noStory HUD positioning */
+.noStoryHUDimage {
+    width: 60rem;
+}
+
+/* timer content */
+.timerDisplay {
+    position: absolute;
+
+    top: 4px;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    font-weight: bold;
+    font-size: larger;
+    color: #22435b;
+}
+
+/* timer content */
+.timerDisplay.noStory, .timerDisplay.teams {
+    position: absolute;
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    top: 2rem;
+    font-size: 4rem;
+}
+
+/* timer content for teams*/
+.timerDisplay.teams {
+    top: 7.6rem;
+}
+
+/* even bigger for no game */
+.timerDisplay.noStory.big {
+    font-size: 8rem;
+}
+
+.timerDisplay.noStory > span, .timerDisplay.teams > span{
+    display: block;
+    text-align: right;
+}
+
+/* last div is fixed size, so it wont shift the flexbox */
+.timerDisplay.noStory > span:last-of-type, .timerDisplay.teams > span:last-of-type{
+    width: 80px;
+    text-align: left;
+}
+
+.timerDisplay.noStory.big > span:last-of-type{
+    width: 180px;
+}
+
+/* red color if less than half a minute is remaining */
+.alertedTimer {
+    animation: 3s linear 3s infinite forwards alertedPulse;
+}
+
+/* boss life text */
+.bossLifeDisplay {
+    position: absolute;
+    top: 21px;
+    left: 222px;
+    width: 130px;
+
+    text-align: center;
+}
+
+/* boss life text */
+.characterLifeDisplay {
+    position: absolute;
+    top: 21px;
+    right: 222px;
+    width: 130px;
+
+    text-align: center;
+}
+
+/* boss life text */
+.bossLifeDisplay.noStory {
+    top: 125px;
+    left: 120px;
+    width: 260px;
+
+    color: var(--pf_font_light);
+}
+
+/* boss life text */
+.characterLifeDisplay.noStory {
+    top: 125px;
+    right: 120px;
+    width: 260px;
+
+    color: var(--pf_font_light);
+}
+
+/* team score text */
+.teamScoreDisplay {
+    position: absolute;
+    bottom: 17px;
+
+    text-align: center;
+    font-weight: bold;
+    font-size: 45px;
+    color: var(--pf_font_light);
+}
+
+.teamScoreDisplay.blue{
+    left: 250px;
+    transform: translateX(-50%);
+}
+
+.teamScoreDisplay.red{
+    right: 250px;
+    transform: translateX(50%);
+}
+
+/* bold color name of team */
+.teamNameDisplay {
+    position: absolute;
+    top: 11px;
+
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.teamNameDisplay.blue {
+    left: 140px;
+    transform: translateX(-50%);
+    color: var(--pf_primary_dark);
+}
+
+.teamNameDisplay.red {
+    right: 140px;
+    transform: translateX(50%);
+    color: var(--pf_wrong_dark);
+}
+
+/* student life health bar */
+.healthBarCharacter {
+    position: absolute;
+
+    top: 63px;
+    left: 602px;
+    width: 319px;
+    height: 26px;
+
+    transition-property: width, height;
+    transition-duration: 1s;
+
+    z-index: 1;
+}
+
+/* used for noStory HUD */
+.healthBarCharacter.noStory {
+    top: 46px;
+    left: 609px;
+    width: 319px;  /* set by js: max 319px */
+    height: 60px;
+}
+
+/* used for delayed effect for background health bar */
+.healthBarCharacter.delayed {
+    transition-delay: 0.75s;
+    z-index: 0;
+}
+
+/* used for delayed effect for background health bar on noStory HUD */
+.healthBarCharacter.delayed.noStory {
+    transition-delay: 0.75s;
+}
+
+/* boss life health bar */
+.healthBarBoss {
+    position: absolute;
+
+    top: 63px;
+    right: 602px;
+    width: 319px;  /* set by js: max 319px */
+    height: 26px;
+
+    transition-property: width, height;
+    transition-duration: 1s;
+
+    z-index: 1;
+}
+
+/* used for noStory health bar */
+.healthBarBoss.noStory {
+    top: 46px;
+    right: 609px;
+    width: 319px;
+    height: 60px;
+}
+
+/* used for delayed effect for background health bar */
+.healthBarBoss.delayed {
+    z-index: 0;
+}
+
+/* used for delayed effect for background health bar for noStory*/
+.healthBarBoss.delayed.noStory {
+    transition-delay: 0.75s;
+}
+
+/* team blue and red score bar */
+.healthBarTeams {
+    position: absolute;
+
+    top: 54px;
+    width: 0px;  /* set by js: max 319px */
+    height: 62px;
+
+    transition-property: width, height;
+    transition-duration: 1s;
+
+    z-index: 1;
+}
+
+/* team blue score bar */
+.healthBarTeams.blue {
+    left: 29px;
+}
+
+/* team red score bar */
+.healthBarTeams.red {
+    right: 29px;
+}

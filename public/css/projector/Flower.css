@@ -1,0 +1,73 @@
+/* additional styles used only by projector flower view */
+
+/* fixes sunflower image size to full size */
+.sunflowerSVG {
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+}
+
+/* background of HUD positioned on left */
+.bossInfoBack {
+    position: absolute;
+}
+
+.gameSceneInfo {
+    justify-content: left;
+}
+
+/* timer content */
+.timerDisplay {
+    position: absolute;
+
+    top: 15px;
+    left: 65px;
+
+    font-size: 1.75em;
+}
+
+/* boss life text */
+.bossLifeDisplay {
+    position: absolute;
+    top: 47px;
+    left: 150px;
+    width: 290px;
+
+    text-align: center;
+}
+
+/* student life health bar */
+.healthBarBoss {
+    position: absolute;
+
+    top: 10px;
+    left: 156px;
+    width: 0; /* set by js: max 404px */
+    height: 28px;
+}
+
+/* used for delayed effect here: reversed for chargeup effect*/
+.healthBarBoss.delayed {
+    z-index: 0;
+}
+
+/* notifications shown in less noisy area*/
+.bossNotificationListWrapper {
+    bottom: 100px;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+/* changes animation to flying animation with parameters*/
+.imageCharacterIdle {
+    --oscillationAmplitude: 0px;  /* modified by js */
+    --horizontalDistance: 0px;    /* modified by js */
+    --animationDurationMultiplier: 1;
+
+    animation-name: characterBeeIdle;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    animation-duration: calc(5s * var(--animationDurationMultiplier));
+    animation-delay: 0s;
+}

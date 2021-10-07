@@ -1,0 +1,245 @@
+/* used by all views for uniform look; defines main and reoccurring css items */
+
+
+/*
+fonts loaded in main parent view
+All fonts are licensed under the Open Font License (https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL).
+
+LIST OF FONTS USED:
+font-family: 'Comfortaa', cursive: best for text
+font-family: 'Raleway', serif: nice for headings
+font-family: 'Prompt', sans-serif: nice for sub-headings
+
+Comfortaa:300|Prompt:300|Raleway
+*/
+
+
+/* raleway-regular - latin-ext_latin Copyright (c) 2010 - 2013, Matt McInerney (matt@pixelspread.com), Pablo Impallari (impallari@gmail.com), Rodrigo Fuenzalida (hello@rfuenzalida.com) with Reserved Font Name "Raleway"*/
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/raleway-v13-latin-ext_latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Raleway'), local('Raleway-Regular'),
+       url('/fonts/raleway-v13-latin-ext_latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts/raleway-v13-latin-ext_latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/fonts/raleway-v13-latin-ext_latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('/fonts/raleway-v13-latin-ext_latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/fonts/raleway-v13-latin-ext_latin-regular.svg#Raleway') format('svg'); /* Legacy iOS */
+}
+
+/* comfortaa-300 - latin-ext_latin  Comfortaa[wght].ttf: Copyright 2011 The Comfortaa Project Authors (https://github.com/alexeiva/comfortaa), with Reserved Font Name "Comfortaa". */
+@font-face {
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 300;
+  src: url('/fonts/comfortaa-v22-latin-ext_latin-300.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('/fonts/comfortaa-v22-latin-ext_latin-300.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts/comfortaa-v22-latin-ext_latin-300.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/fonts/comfortaa-v22-latin-ext_latin-300.woff') format('woff'), /* Modern Browsers */
+       url('/fonts/comfortaa-v22-latin-ext_latin-300.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/fonts/comfortaa-v22-latin-ext_latin-300.svg#Comfortaa') format('svg'); /* Legacy iOS */
+}
+
+/* comfortaa-700 - latin-ext_latin  Comfortaa[wght].ttf: Copyright 2011 The Comfortaa Project Authors (https://github.com/alexeiva/comfortaa), with Reserved Font Name "Comfortaa". */
+/* used https://google-webfonts-helper.herokuapp.com/fonts/comfortaa?subsets=latin for conversion, since some font converters add weird artifacts */
+@font-face {
+    font-family: 'Comfortaa';
+    font-style: normal;
+    font-weight: 600;
+    src: url("/fonts/comfortaa-v28-latin-700.eot"); /* IE9 Compat Modes */
+    src: url("/fonts/comfortaa-v28-latin-700.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("/fonts/comfortaa-v28-latin-700.svg") format("svg"), /* Legacy iOS */
+    url("/fonts/comfortaa-v28-latin-700.ttf") format("truetype"), /* Safari, Android, iOS */
+    url("/fonts/comfortaa-v28-latin-700.woff") format("woff"), /* Modern Browsers */
+    url("/fonts/comfortaa-v28-latin-700.woff2") format("woff2"); /* Modern Browsers */
+}
+
+/* prompt-300 - latin-ext_latin Copyright (c) 2015, Cadson Demak (info@cadsondemak.com) */
+@font-face {
+  font-family: 'Prompt';
+  font-style: normal;
+  font-weight: 300;
+  src: url('/fonts/prompt-v3-latin-ext_latin-300.eot'); /* IE9 Compat Modes */
+  src: local('Prompt Light'), local('Prompt-Light'),
+       url('/fonts/prompt-v3-latin-ext_latin-300.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts/prompt-v3-latin-ext_latin-300.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/fonts/prompt-v3-latin-ext_latin-300.woff') format('woff'), /* Modern Browsers */
+       url('/fonts/prompt-v3-latin-ext_latin-300.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/fonts/prompt-v3-latin-ext_latin-300.svg#Prompt') format('svg'); /* Legacy iOS */
+}
+
+html {
+    height: 100%; /*necessary for full page color gradient*/
+    width: 100%;
+    color: var(--pf_font_gray);
+
+    /* diagonal white to gray to white gradient to break up monotone space*/
+    background-image: linear-gradient(170deg, var(--pf_main_bc) 20%, var(--pf_main_bc_darker) 50%, var(--pf_main_bc) 80%);
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+/* default font set */
+body {
+    height: 100%;
+    width: 100%;
+
+    font-family: 'Comfortaa', serif;
+    background-color: transparent;
+}
+
+/* big headings */
+h1, h2, h3 {
+    font-family: 'Raleway', serif;
+}
+
+/* sub headings */
+h4, h5, h6 {
+    font-family: 'Prompt', serif;
+}
+
+/* vertical lines in dark gray */
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid;
+    border-color: var(--pf_separationLine_gray);
+}
+
+.hrShort {
+    display: block;
+    height: 2px;
+    width: 150px;
+    border: 0;
+    border-top: 2px solid;
+    border-color: var(--pf_gray_medium);
+}
+
+/* used for JS particles */
+canvas {
+    position: absolute;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+}
+
+.unicodeIcon {
+    font-size: 1.25em;
+    font-weight: bold;
+    margin: 0 0.25em 0 0.25em;
+}
+
+/* prevents icons from changing size*/
+.iconify {
+    flex-shrink: 0;
+    flex-grow: 0;
+}
+
+/* used for iconify design icons displayed without text near it or embedded in text*/
+.iconify_small {
+    font-size: 1em;
+    vertical-align: middle;
+}
+
+.iconify_medium {
+    font-size: 1.5em;
+    vertical-align: middle;
+}
+
+.iconify_large {
+    font-size: 2.5em;
+    vertical-align: middle;
+}
+
+/* used for inline text margin right, text is right of button*/
+.iconify_medium_text_mr {
+    font-size: 1.5em;
+    vertical-align: middle;
+    margin: 0 0.3em 0 0;
+
+    position: relative;
+    top: 0.1em;
+}
+
+/* used for inline margin left, text is left of button*/
+.iconify_medium_text_ml {
+    font-size: 1.5em;
+    vertical-align: middle;
+    margin: 0 0 0 0.3em;
+
+    position: relative;
+    top: 0.1em;
+}
+
+/* used for iconify design icons displayed without text near it or embedded in text*/
+.iconify_small_text_mr {
+    font-size: 1em;
+    margin: 0 0.3em 0 0;
+
+    position: relative;
+    top: 0.1em;
+}
+
+/* resizes to full size */
+.fullSize {
+    width: 100%;
+    height: 100%;
+}
+
+/* responsively adds left and right margin on large screens */
+.mobileWrapper {
+    margin: 0%;
+}
+
+/* div sticks to top if scroll position is reached */
+.sticky {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+/* used for scolling animations */
+.waitingForScroll {
+    opacity: 0;
+}
+
+/* ephasize in color and bold */
+.emphasizeHeading {
+    --resizeFactor: 2;
+    font-weight: bold;
+    font-size: calc(2em * var(--resizeFactor));
+    /*color: var(--pf_yellow);*/
+}
+
+.emphasizeHeading.stronger {--resizeFactor: 3; }
+
+h1.emphasizeHeading { font-size: calc(2.00em * var(--resizeFactor));    margin-bottom: calc(0.67em / var(--resizeFactor)) }
+h2.emphasizeHeading { font-size: calc(1.50em * var(--resizeFactor));    margin-bottom: calc(0.75em / var(--resizeFactor)) }
+h3.emphasizeHeading { font-size: calc(1.17em * var(--resizeFactor));    margin-bottom: calc(0.83em / var(--resizeFactor)) }
+h4.emphasizeHeading { font-size: calc(1.00em * var(--resizeFactor));    margin-bottom: calc(1.12em / var(--resizeFactor)) }
+h5.emphasizeHeading { font-size: calc(0.83em * var(--resizeFactor));    margin-bottom: calc(1.50em / var(--resizeFactor)) }
+h6.emphasizeHeading { font-size: calc(0.75em * var(--resizeFactor));    margin-bottom: calc(1.67em / var(--resizeFactor)) }
+
+.emphasizeHeading.yellow {color: var(--pf_yellow);}
+.emphasizeHeading.blue {color: var(--pf_primary);}
+.emphasizeHeading.green {color: var(--pf_correct);}
+.emphasizeHeading.red {color: var(--pf_wrong);}
+
+/*used if screen width is larger than 800px; adds space left and right */
+@media only screen and (min-width: 800px) {
+    .mobileWrapper {
+        margin: 0% 10% 0% 10%;
+    }
+}
+
+/*used if screen width is larger than 1080px; adds space left and right */
+@media only screen and (min-width: 1080px) {
+    .mobileWrapper {
+        margin: 0% 25% 0% 25%;
+    }
+}

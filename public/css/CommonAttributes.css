@@ -1,0 +1,31 @@
+/* defines common attributes like shading and borders; can be changed easily */
+
+/* easy background coloring */
+.bg_pf_primary { background-color: var(--pf_primary); }
+.bg_pf_wrong { background-color: var(--pf_wrong); }
+.bg_pf_correct { background-color: var(--pf_correct); }
+.bg_pf_trophy_negative { background-color: var(--pf_wrong_light); }
+.bg_pf_trophy_positive { background-color: var(--pf_correct_light); }
+.fg_pf_primary { color: var(--pf_primary); }
+
+/* defines commonly used border */
+.bordered, .boxhalfBordered, .wrapperQuestion, .questionBox, .questionImage,
+.centerQRcode, .centerBigWrapper, .answerLabel, .sessionItem, .centerQRcode, .editorPreviewImage, .statisticsCardWrapperSmall,
+.statisticsCardWrapperLarge, .statisticQuestionOuter, .gameSelectionCardWrapper {
+    border-radius: 3px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--pf_border_gray);
+}
+
+/* defines commonly used outer soft shadow (bottom right) */
+.shaded, .boxhalfBordered, .wrapperQuestion, .wrapperTrophy, .fillTrophyImage, .questionBox, .questionImage,
+.centerQRcode, .centerBigWrapper, .answerLabel, .editorSidenavigation, .navbar, .sessionItem, .centerQRcode, .editorPreviewImage,
+.statisticsCardWrapperSmall, .statisticsCardWrapperLarge, .navbarMobile, .navbarMobileEnlarged, .statisticQuestionOuter {
+    box-shadow: 1px 2px 4px var(--pf_shadow_gray);
+}
+
+/* defines inner soft shadow (top left) */
+.questionFooter {
+    box-shadow: 1px -1px 4px var(--pf_shadow_gray);
+}

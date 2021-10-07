@@ -1,0 +1,161 @@
+
+/* custom henrik styled buttons used for info view */
+
+a.henrikButton, a:hover.henrikButton {
+    display: inline-block;
+    box-sizing: border-box;
+    color: inherit;
+    text-decoration: inherit;
+}
+
+.henrikButton {
+    --botton_height: 50px;
+    --button_width: 200px;
+    --main_color: var(--pf_primary);
+    --outline_color: var(--pf_primary_light);
+
+    width: var(--button_width);
+    height: var(--botton_height);
+
+    margin: 1em;
+
+    position: relative;
+    text-align: center;
+    font-size: 1em;
+    line-height: var(--botton_height);
+
+    background-color: var(--main_color);
+
+    border: transparent;
+    border-radius: calc(var(--botton_height) / 2);
+
+    box-shadow: 0 4px 0 var(--outline_color), 1px 8px 8px var(--pf_shadow_gray);
+
+    transition: all 0.3s;
+}
+
+.henrikButton:focus {
+    outline: none;
+}
+
+.henrikButton:hover:not(.static) {
+    box-shadow: 0 6px 0 var(--outline_color), 1px 10px 10px var(--pf_shadow_gray);
+
+    color: inherit; !important;
+
+    transform: translateY(-2px);
+    transition: all 0.3s;
+}
+
+.henrikButton:active:not(.static) {
+    box-shadow: 0 2px 0 var(--outline_color), 1px 2px 4px var(--pf_shadow_gray);
+
+    transform: translateY(4px);
+    transition: all 0s;
+}
+
+.henrikButton.circle {
+    --botton_height: 45px;
+    --button_width: 45px;
+}
+
+.henrikButton.small {
+    --botton_height: 45px;
+    --button_width: 150px;
+}
+
+.henrikButton.large {
+    --botton_height: 60px;
+    --button_width: 300px;
+}
+
+.henrikButton.larger {
+    --botton_height: 60px;
+    --button_width: 375px;
+}
+
+@media screen and (max-width: 400px) {
+    .henrikButton {
+        font-size: 0.85em;
+    }
+
+    .henrikButton.larger {
+        --button_width: 300px;
+        --botton_height: 45px;
+    }
+
+    .henrikButton.collapseMargin {
+        margin: 0.5em;
+    }
+}
+
+.henrikButton.white {
+    --main_color: white;
+    --outline_color: var(--pf_primary_dark);
+}
+
+.henrikButton:hover.white:not(.static) {
+    --main_color: rgb(236, 242, 255);
+}
+
+.henrikButton.primary {
+    --main_color: var(--pf_primary);
+    --outline_color: var(--pf_primary_dark);
+    color: var(--pf_font_light);
+}
+
+.henrikButton:hover.primary:not(.static) {
+    --main_color: var(--pf_primary_light);
+}
+
+.henrikButton.yellow {
+    --main_color: var(--pf_yellow);
+    --outline_color: var(--pf_primary_dark);
+}
+
+.henrikButton:hover.yellow:not(.static) {
+    --main_color: var(--pf_yellow_light);
+}
+
+.henrikButton.correct {
+    --main_color: var(--pf_correct);
+    --outline_color: var(--pf_primary_dark);
+    color: var(--pf_font_light);
+}
+
+.henrikButton:hover.correct:not(.static) {
+    --main_color: var(--pf_correct_light);
+}
+
+.henrikButton.wrong {
+    --main_color: var(--pf_wrong);
+    --outline_color: var(--pf_primary_dark);
+    color: var(--pf_font_light);
+}
+
+.henrikButton:hover.wrong:not(.static) {
+    --main_color: var(--pf_wrong_light);
+}
+
+.henrikButton.disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+    --main_color: var(--pf_gray_medium);
+    --outline_color: var(--pf_gray_dark);
+}
+
+.henrikButton.arrow:before {
+    position: absolute;
+    left: 50%;
+    top: -80%;
+    transform: translateX(-50%);
+    color: var(--pf_primary_dark);
+    content: "▼";
+    text-align: center;
+}
+
+@media screen and (max-width: 400px) {
+    .henrikButton.arrow:before {
+        top: -65%;
+    }
+}

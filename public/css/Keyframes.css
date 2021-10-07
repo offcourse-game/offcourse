@@ -1,0 +1,704 @@
+/* public keyframes; defined keyframes can be used in multiple views and css files */
+
+
+/* =========================== question view and achievement view ============================= */
+
+/* creates fliping card effect */
+@keyframes rotateIn {
+    0% { transform: rotateX(90deg); }
+    100% { transform: rotateX(0deg); }
+}
+
+
+/* =========================== boss view and game over view ============================= */
+
+/* used for fliying spears */
+@keyframes spearThrow {
+    /*parabolic flight for spears, rotation follows accordingly (delta of last keyframe and current keyframe [approximation error not noticeable])
+    flight ends at 90% other 10% are for spears sticking in ground and fading out
+     */
+    0% {
+        transform: translate(0vw, 0vw) rotate(-30deg);
+        opacity: 0;
+    }
+    5% {
+        transform: translate(-5.0vw, -7.8vw) rotate(-38deg);
+        opacity: 1;
+    }
+    10% { transform: translate(-10.0vw, -13.9vw) rotate(-43deg); }
+    15% { transform: translate(-15.0vw, -18.2vw) rotate(-52deg); }
+    17.5% { transform: translate(-17.5vw, -19.7vw) rotate(-59deg); }
+    20% { transform: translate(-20.0vw, -20.8vw) rotate(-67deg); }
+    22.5% { transform: translate(-22.5vw, -21.4vw) rotate(-75deg); }
+    25% { transform: translate(-25.0vw, -21.7vw) rotate(-85deg); }
+    27.5% { transform: translate(-27.5vw, -21.4vw) rotate(-95deg); }
+    30% { transform: translate(-30.0vw, -20.8vw) rotate(-105deg); }
+    32.5% { transform: translate(-32.5vw, -19.7vw) rotate(-113deg); }
+    35% { transform: translate(-35.0vw, -18.2vw) rotate(-121deg); }
+    40% { transform: translate(-40.0vw, -13.9vw) rotate(-132deg); }
+    45% { transform: translate(-45.0vw, -7.8vw) rotate(-140deg); }
+    50% { transform: translate(-50.0vw, 1vw) rotate(-143deg); }
+    90% {
+        transform: translate(-50.0vw, 1vw) rotate(-143deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50.0vw, 1vw) rotate(-143deg);
+        opacity: 0;
+    }
+
+}
+
+/* smoke particles for boss move up */
+@keyframes bossSmoke {
+    0% {
+        transform: translateY(0px) rotate(0);
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.5;
+    }
+    80% {
+        transform: translateY(-100px) rotate(180deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-110px) rotate(200deg);
+    }
+}
+
+/* fire particles move along 3 different paths */
+@keyframes bossFire0 {
+    0% {
+        transform: translate(0px, 0px) rotate(114deg);
+        opacity: 0;
+    }
+    2% {
+        opacity: 1;
+    }
+    8% {
+        opacity: 1;
+    }
+    10% {
+        opacity: 0;
+        transform: translate(160px, 70px) rotate(114deg);
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes bossFire1 {
+    0% {
+        transform: translate(0px, 0px) rotate(121deg);
+        opacity: 0;
+    }
+    2% {
+        opacity: 1;
+    }
+    8% {
+        opacity: 1;
+    }
+    10% {
+        opacity: 0;
+        transform: translate(180px, 110px) rotate(121deg);
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes bossFire2 {
+    0% {
+        transform: translate(0px, 0px) rotate(130deg);
+        opacity: 0;
+    }
+    2% {
+        opacity: 1;
+    }
+    8% {
+        opacity: 1;
+    }
+    10% {
+        opacity: 0;
+        transform: translate(180px, 150px) rotate(130deg);
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* fades sky from blue to dark gray, creates thunder effect when players lose*/
+@keyframes skyColorGray {
+    0%{
+        background-color: deepskyblue;
+    }
+    100% {
+        background-color: #202040;
+    }
+}
+
+/* fades sky from blue to dark gray, creates thunder effect when players lose*/
+@keyframes foregroundFaderGray {
+    0%{
+        background-color: rgba(0, 0, 0, 0);
+    }
+    100% {
+        background-color: rgba(0, 0, 50, 0.5);
+    }
+}
+
+/* moves ambient cloud */
+@keyframes cloudMove {
+    0% { transform: translateX(0px); }
+    50% { transform: translateX(-300px); }
+    100% { transform: translateX(0px); }
+}
+
+/* lightning flashes when players lose */
+@keyframes lightningTrigger {
+    0% { opacity: 0; }
+    45% { opacity: 0; }
+    50% { opacity: 1; }
+    60% { opacity: 0; }
+    75% { opacity: 0; }
+    80% { opacity: 1; }
+    90% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+/* boss fallse down and bounces
+damped bounce function used here for 0 <= t <= 100:
+        abs(cos((t+a)/b)/((t+a)/b))*c    with a=7, b=9.75, c=160
+*/
+@keyframes bossFall {
+    0% {
+        opacity: 0;
+        transform: translateY(-170px);
+    }
+    4% { transform: translateY(-61px); }
+    8% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+    14% { transform: translateY(-41px); }
+    21% { transform: translateY(-54px); }
+    29% { transform: translateY(-37px); }
+    40% { transform: translateY(0px); }
+    49% { transform: translateY(-23px); }
+    55% { transform: translateY(-26px); }
+    64% { transform: translateY(-14px); }
+    71% { transform: translateY(0px); }
+    81% { transform: translateY(-15px); }
+    86% { transform: translateY(-17px); }
+    94% { transform: translateY(-10px); }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+/* boss moves left and right */
+@keyframes bossIdle {
+    0% { transform: translateX(0px); }
+    25% { transform: translateX(-25px); }
+    50% { transform: translateX(0px); }
+    75% { transform: translateX(25px); }
+    100% { transform: translateX(0px); }
+}
+
+/* boss flashes white when damaged */
+@keyframes bossFlash {
+    0% { filter: inherit; }
+    50% {filter: brightness(0) invert(1); }
+    100% { filter: inherit; }
+}
+
+/* boss scales if it dies */
+@keyframes bossDie {
+    0% {
+        transform: scale(0, 0);
+    }
+    80% {
+        transform: scale(0.8, 0.8);
+    }
+    100% {
+        transform: scale(1, 1);
+    }
+}
+
+/* animation paths for 3 bones when boss dies */
+@keyframes bones0 {
+    0% {
+        transform: translate(0px, 0px) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        transform: translate(0px, 0px) rotate(0deg);
+        opacity: 1;
+    }
+    75% {
+        transform: translate(30px, 250px) rotate(5deg);
+    }
+    90% {
+        transform: translate(60px, 220px) rotate(10deg);
+    }
+    100% {
+        transform: translate(90px, 250px) rotate(15deg);
+        opacity: 1;
+    }
+}
+
+@keyframes bones1 {
+    0% {
+        transform: translate(0px, 0px) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        transform: translate(0px, 0px) rotate(0deg);
+        opacity: 1;
+    }
+    70% {
+        transform: translate(-20px, 110px) rotate(-30deg);
+    }
+    85% {
+        transform: translate(-40px, 100px) rotate(-60deg);
+    }
+    100% {
+        transform: translate(-60px, 110px) rotate(-90deg);
+        opacity: 1;
+    }
+}
+
+@keyframes bones2 {
+    0% {
+        transform: translate(0px, 0px) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        transform: translate(0px, 0px) rotate(0deg);
+        opacity: 1;
+    }
+    65% {
+        transform: translate(-5px, 20px) rotate(120deg);
+    }
+    80% {
+        transform: translate(-10px, 15px) rotate(240deg);
+    }
+    100% {
+        transform: translate(-15px, 20px) rotate(360deg);
+        opacity: 1;
+    }
+}
+
+/* fall movement of character at startup, fall (accelerated t^2) and rotate */
+@keyframes characterFall {
+    0%{
+        opacity: 0;
+        transform: rotate(0deg) translateY(-450px) scaleX(0.8) scaleY(1.25);
+    }
+    16% {
+        opacity: 1;
+        transform: rotate(0deg) translateY(-450px);
+    }
+    32% {
+        transform: rotate(-1deg) translateY(-422px);
+    }
+    48% {
+        transform: rotate(0deg) translateY(-338px);
+    }
+    64% {
+        transform: rotate(1deg) translateY(-197px) scaleX(0.8) scaleY(1.25);
+    }
+    80% {
+        opacity: 1;
+        transform: rotate(0deg) translateY(0px) scaleX(1.43) scaleY(0.7);
+    }
+    100% {
+        opacity: 1;
+        transform: rotate(0deg) translateY(0px) scaleX(1) scaleY(1);
+    }
+}
+
+/* idle movement of character, jump and rotate */
+@keyframes characterIdle {
+    0% { transform: rotate(0deg) translateY(0px); }
+    25% { transform: rotate(-3deg) translateY(-5px); }
+    50% { transform: rotate(0deg) translateY(0px); }
+    75% { transform: rotate(3deg) translateY(-5px); }
+    100% { transform: rotate(0deg) translateY(0px); }
+}
+
+/* idle movement of character, jump and rotate */
+@keyframes characterBeeIdle {
+    0% {
+       transform: translate(calc(var(--horizontalDistance) * 0), calc(var(--oscillationAmplitude) * 0)) scale(-1, 1) rotate(-3deg);
+    }
+    5% {
+        transform: translate(calc(var(--horizontalDistance) * 0.2), calc(var(--oscillationAmplitude) * 0.588)) scale(-1, 1) rotate(0deg);
+    }
+    10% {
+        transform: translate(calc(var(--horizontalDistance) * 0.4), calc(var(--oscillationAmplitude) * 0.951)) scale(-1, 1) rotate(3deg);
+    }
+    12.5% {
+        transform: translate(calc(var(--horizontalDistance) * 0.5), calc(var(--oscillationAmplitude) * 1)) scale(-1, 1) rotate(1.5deg);
+    }
+    15% {
+        transform: translate(calc(var(--horizontalDistance) * 0.6), calc(var(--oscillationAmplitude) * 0.951)) scale(-1, 1) rotate(0deg);
+    }
+    20% {
+        transform: translate(calc(var(--horizontalDistance) * 0.8), calc(var(--oscillationAmplitude) * 0.588)) scale(-1, 1) rotate(-3deg);
+    }
+    25% {
+        transform: translate(calc(var(--horizontalDistance) * 1), calc(var(--oscillationAmplitude) * 0)) scale(0, 1) rotate(0deg);
+    }
+    30% {
+        transform: translate(calc(var(--horizontalDistance) * 0.8), calc(var(--oscillationAmplitude) * -0.588)) scale(1, 1) rotate(3deg);
+    }
+    35% {
+        transform: translate(calc(var(--horizontalDistance) * 0.6), calc(var(--oscillationAmplitude) * -0.951)) scale(1, 1) rotate(0deg);
+    }
+    37.5% {
+        transform: translate(calc(var(--horizontalDistance) * 0.5), calc(var(--oscillationAmplitude) * -1)) scale(1, 1) rotate(-1.5deg);
+    }
+    40% {
+        transform: translate(calc(var(--horizontalDistance) * 0.4), calc(var(--oscillationAmplitude) * -0.951)) scale(1, 1) rotate(-3deg);
+    }
+    45% {
+        transform: translate(calc(var(--horizontalDistance) * 0.2), calc(var(--oscillationAmplitude) * -0.588)) scale(1, 1) rotate(0deg);
+    }
+    50% {
+        transform: translate(calc(var(--horizontalDistance) * 0), calc(var(--oscillationAmplitude) * 0)) scale(1, 1) rotate(3deg);
+    }
+    55% {
+        transform: translate(calc(var(--horizontalDistance) * -0.2), calc(var(--oscillationAmplitude) * 0.588)) scale(1, 1) rotate(0deg);
+    }
+    60% {
+        transform: translate(calc(var(--horizontalDistance) * -0.4), calc(var(--oscillationAmplitude) * 0.951)) scale(1, 1) rotate(-3deg);
+    }
+    62.5% {
+        transform: translate(calc(var(--horizontalDistance) * -0.5), calc(var(--oscillationAmplitude) * 1)) scale(1, 1) rotate(-1.5deg);
+    }
+    65% {
+        transform: translate(calc(var(--horizontalDistance) * -0.6), calc(var(--oscillationAmplitude) * 0.951)) scale(1, 1) rotate(0deg);
+    }
+    70% {
+        transform: translate(calc(var(--horizontalDistance) * -0.8), calc(var(--oscillationAmplitude) * 0.588)) scale(1, 1) rotate(3deg);
+    }
+    75% {
+        transform: translate(calc(var(--horizontalDistance) * -1), calc(var(--oscillationAmplitude) * 0)) scale(0, 1) rotate(0deg);
+    }
+    80% {
+        transform: translate(calc(var(--horizontalDistance) * -0.8), calc(var(--oscillationAmplitude) * -0.588)) scale(-1, 1) rotate(-3deg);
+    }
+    85% {
+        transform: translate(calc(var(--horizontalDistance) * -0.6), calc(var(--oscillationAmplitude) * -0.951)) scale(-1, 1) rotate(0deg);
+    }
+    87.5% {
+        transform: translate(calc(var(--horizontalDistance) * -0.5), calc(var(--oscillationAmplitude) * -1)) scale(-1, 1) rotate(1.5deg);
+    }
+    90% {
+        transform: translate(calc(var(--horizontalDistance) * -0.4), calc(var(--oscillationAmplitude) * -0.951)) scale(-1, 1) rotate(3deg);
+    }
+    95% {
+        transform: translate(calc(var(--horizontalDistance) * -0.2), calc(var(--oscillationAmplitude) * -0.588)) scale(-1, 1) rotate(0deg);
+    }
+    100% {
+        transform: translate(calc(var(--horizontalDistance) * 0), calc(var(--oscillationAmplitude) * 0)) scale(-1, 1) rotate(-3deg);
+    }
+}
+
+/* character fades out on death */
+@keyframes characterDie {
+    0% { opacity: 1; }
+    90% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+/* character jumps a little */
+@keyframes characterJump {
+    0% { transform: translateY(0) scaleX(1) scaleY(1); }
+    10% { transform: scaleX(1.05) scaleY(0.95); }
+    30% { transform: translateY(0); }
+    50% { transform: translateY(-2rem) scaleX(0.9) scaleY(1.1); }
+    70% { transform: translateY(0); }
+    90% { transform: scaleX(1.05) scaleY(0.95); }
+    100% { transform: translateY(0) scaleX(1) scaleY(1); }
+}
+
+/* moves ghost up and fades out, used on player death */
+@keyframes ghostSpawn {
+    0% {
+        opacity: 0;
+        transform: translateY(0px);
+    }
+    10% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-200px);
+    }
+}
+
+/* moves notification on boss view down and fades out */
+@keyframes bossNotificationDisappear {
+    0% {
+        opacity: 0;
+        transform: translateY(-14px) scaleY(1);
+    }
+    5% {
+        opacity: 1;
+        transform: translateY(9px) scaleY(1);
+    }
+    15% {transform: translateY(-6px) scaleY(1);}
+    25% {transform: translateY(3px) scaleY(1);}
+    35% {transform: translateY(-2px) scaleY(1);}
+    45% {transform: translateY(2px) scaleY(1);}
+    55% {transform: translateY(-2px) scaleY(1);}
+    65% {transform: translateY(2px) scaleY(1);}
+    75% {transform: translateY(-3px) scaleY(1);}
+    85% {transform: translateY(6px) scaleY(1);}
+    90% {
+        opacity: 1;
+        transform: translateY(-24px) scaleY(1);
+    }
+    95% {
+        opacity: 0;
+        transform: translateY(200px) scaleY(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(200px) scaleY(0);
+    }
+}
+
+/* vibrating characters moving up and down */
+@keyframes bossNotificationChar {
+    0% {
+        transform: translateY(-1rem);
+        opacity: 0;
+    }
+    75% {
+        transform: translateY(0.25rem);
+    }
+    100% {
+        transform: translateY(0rem);
+        opacity: 1;
+    }
+}
+
+/* sliding animation for sliding door (left&right) */
+@keyframes doorSlider {
+    0% { width: 50.01%; }
+    100% { width: 0%; }
+}
+
+/* crown used for win screen */
+@keyframes crownBobbing {
+    0% {
+        transform: translateY(20px) scale(0.95);
+    }
+    50% {
+        transform: translateY(0px) scale(1);
+    }
+    100% {
+        transform: translateY(20px) scale(0.95);
+    }
+}
+
+/* =========================== question view ============================= */
+
+/* pulses "next question" button if time runs out to create an alerting effect */
+@keyframes pulseShadow {
+    0% { box-shadow: 1px 2px 4px var(--pf_shadow_gray), 0 0 0 0px rgba(14, 102, 140, 0.75); }
+    100% { box-shadow: 1px 2px 4px var(--pf_shadow_gray), 0 0 0 50px rgba(14, 102, 140, 0); }
+}
+
+/* pops up notification in bottom right corner */
+@keyframes notificationAnimation {
+    0% { transform: translateX(400px); }
+    20% { transform: translateX(0px); }
+    80% { transform: translateX(0px); }
+    100% { transform: translateX(400px); }
+}
+
+/* heart grays out, moves left fades out if player loses heart */
+@keyframes heartLose {
+    0% {
+        transform: translateX(0px) scale(1);
+        filter: grayscale(0%);
+        opacity: 0;
+    }
+    30% {
+        transform: scale(1.25);
+        filter: grayscale(100%);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(150px) scale(0.75);
+        filter: grayscale(100%);
+        opacity: 0;
+    }
+}
+
+/* creates pulsating red border on answer box if answer was wrong */
+@keyframes pulsateWrong {
+    0% {border-color: var(--pf_wrong); }
+    20% {border-color: var(--pf_wrong);}
+    50% {border-color: transparent; }
+    80% {border-color: var(--pf_wrong); }
+    100% {border-color: var(--pf_wrong); }
+}
+
+/* creates pulsating green border on answer box if answer was correct */
+@keyframes pulsateCorrect {
+    0% { border-color: var(--pf_correct); }
+    20% { border-color: var(--pf_correct); }
+    50% { border-color: transparent; }
+    80% { border-color: var(--pf_correct); }
+    100% { border-color: var(--pf_correct); }
+}
+
+/* fades quesion box to red if player made mistake*/
+@keyframes fadeWrong {
+    0% { background-color: var(--pf_primary); }
+    100% { background-color: var(--pf_wrong); }
+}
+
+/* fades quesion box to red if player were right*/
+@keyframes fadeCorrect {
+    0% { background-color: var(--pf_primary); }
+    100% { background-color: var(--pf_correct); }
+}
+
+/* =========================== info view ============================= */
+
+/* fades in when in view (JS)*/
+@keyframes slideInRight {
+    0% {
+        transform: translateX(-200px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    0% {
+        transform: translateX(200px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInUp {
+    0% {
+        transform: translateY(200px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInDown {
+    0% {
+        transform: translateY(-200px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* skewed fade in */
+@keyframes slideInLeftSkewed {
+    0% {
+        transform: translateX(200px) skew(-15deg);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0) skew(-8deg);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRightSkewed {
+    0% {
+        transform: translateX(-200px) skew(-15deg);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0) skew(-8deg);
+        opacity: 1;
+    }
+}
+
+/* animated downward arrows */
+@keyframes ArrowScrollDown {
+    0%{
+        opacity: 1;
+    }
+    20%{
+        opacity: 1;
+        transform: rotate(45deg) translate(0, 0);
+    }
+    50%{
+        opacity: 0;
+        transform: rotate(45deg) translate(20px,20px);
+    }
+    50.1%{
+        opacity: 0;
+        transform: rotate(45deg) translate(-20px,-20px);
+    }
+    80%{
+        opacity: 1;
+        transform: rotate(45deg) translate(0, 0);
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+/* pulsating fot for no game view */
+@keyframes alertedPulse {
+    0% {
+        color: #22435b;
+        filter: drop-shadow(0 0 0 var(--pf_wrong));
+    }
+    10% {
+        color: #22435b;
+        filter: drop-shadow(0 0 0 var(--pf_wrong));
+    }
+    35% {
+        color: var(--pf_wrong);
+    }
+    40% {
+        filter: drop-shadow(0 0 5px var(--pf_wrong));
+    }
+    60% {
+        filter: drop-shadow(0 0 5px var(--pf_wrong));
+    }
+    65% {
+        color: var(--pf_wrong);
+    }
+    90% {
+        color: #22435b;
+        filter: drop-shadow(0 0 0 var(--pf_wrong));
+    }
+    100% {
+        color: #22435b;
+        filter: drop-shadow(0 0 0 var(--pf_wrong));
+    }
+}
