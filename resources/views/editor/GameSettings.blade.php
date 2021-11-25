@@ -107,12 +107,12 @@
                     <!-- use style="display: none;" here to hide training mode for prod-->
 
                     {{--unsupported mode due to copyright issues--}}
-                    {{--<div class="gameSelectionCard {{$gameModeType == 'training' ? 'active' : ''}}" id="gameSelect_training" onclick="toggleGameSelection('training')">
+                    <div class="gameSelectionCard {{$gameModeType == 'training' ? 'active' : ''}}" style="display: none;" id="gameSelect_training" onclick="toggleGameSelection('training')">
                         <h1><span class="iconify" data-icon="fa-solid:running" data-inline="true"></span></h1>
                         <br>
                         <h4>Training</h4>
                         <small>In diesem Modus können Studierende nicht ausscheiden. Eine animierte Blume wird angezeigt. </small>
-                    </div>--}}
+                    </div>
 
                     <div class="gameSelectionCard {{$gameModeType == 'noGame' ? 'active' : ''}}" id="gameSelect_noGame" onclick="toggleGameSelection('noGame')">
                         <h1><span class="iconify" data-icon="zmdi:eye-off" data-inline="true"></span></h1>
