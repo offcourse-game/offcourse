@@ -39,6 +39,12 @@ class Answer{
      * @return int correct will be 0 if the answers needs more ten 45 sec. || -1 when we have an error
      */
     public static function insertAnswerInformation($studentId, $questionId, $correct){
+        // Check if we have already given out questions
+        if (session('questionIds') == Null){
+            Log::warning("No Question send to player yet: given question: " . $questionId . " was not send out for player: " . $studentId);
+            return -1;
+        }
+
         // Check if the answer is for a given question.
         if ( ! session('questionIds')->has($questionId)){
             Log::warning("QuestionId mismatch: given question: " . $questionId . " was not send out for player: " . $studentId);
